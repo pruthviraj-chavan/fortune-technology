@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,13 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				fortune: {
+					pink: '#FF6B95',
+					orange: '#FF9F5B',
+					red: '#FF5B7F',
+					green: '#50C878',
+					light: '#FFAA85',
 				}
 			},
 			borderRadius: {
@@ -84,11 +92,26 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'pulse-slow': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.8' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 6s ease-in-out infinite',
+				'pulse-slow': 'pulse-slow 4s infinite'
+			},
+			backgroundImage: {
+				'gradient-pink': 'linear-gradient(135deg, #FF6B95 0%, #FFAA85 100%)',
+				'gradient-orange-pink': 'linear-gradient(135deg, #FF9F5B 0%, #FF6B95 100%)',
+				'gradient-green-orange': 'linear-gradient(135deg, #50C878 0%, #FF9F5B 100%)'
 			}
 		}
 	},
