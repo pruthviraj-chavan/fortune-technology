@@ -1,10 +1,53 @@
 
-import React, { useEffect, useRef } from 'react';
-import { MapPin, Phone, Mail, Clock, MessageCircle } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { MapPin, Phone, Mail, Clock, MessageCircle, Send, User, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useToast } from '@/components/ui/use-toast';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+
+const formSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  phone: z.string().min(10, "Please enter a valid phone number"),
+  subject: z.string().min(5, "Subject must be at least 5 characters"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+});
 
 const Contact = () => {
   const mapRef = useRef<HTMLDivElement>(null);
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      subject: "",
+      message: "",
+    },
+  });
+
+  const onSubmit = (values: z.infer<typeof formSchema>) => {
+    setIsSubmitting(true);
+    // Simulating form submission
+    setTimeout(() => {
+      console.log("Form submitted:", values);
+      toast({
+        title: "Message Sent Successfully!",
+        description: "We'll get back to you within 24 hours.",
+        variant: "default",
+      });
+      form.reset();
+      setIsSubmitting(false);
+    }, 1500);
+  };
   
   useEffect(() => {
     // Initialize Google Maps
@@ -39,7 +82,7 @@ const Contact = () => {
     // Load Google Maps API
     if (!window.google) {
       const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBz6RXoH9ds4EuBadQBMMJRTL5ECtlqlQM&callback=initMap`;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBz6RXoH9ds4EuBadQBMMJRTL5ECtlqlQM&callback=initMap&v=weekly`;
       script.async = true;
       script.defer = true;
       window.initMap = initMap;
@@ -65,7 +108,7 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Contact Information */}
+      {/* Contact Information & Form */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -141,44 +184,119 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden animate-fade-in">
-              <div className="p-6 bg-gradient-sunset text-white">
-                <h3 className="text-2xl font-bold mb-2">Connect With Us 🤝</h3>
-                <p>
-                  Reach out via WhatsApp for quick responses to your inquiries.
-                </p>
+            {/* New Contact Form */}
+            <div className="bg-white rounded-xl shadow-lg p-8 animate-fade-in">
+              <div className="text-center mb-6">
+                <h2 className="text-2xl font-bold text-fortune-blue">Send Us a Message 📨</h2>
+                <p className="text-gray-600 mt-2">Fill out the form below and we'll get back to you shortly</p>
               </div>
-              <div className="p-6">
-                <div className="mb-6 text-center">
-                  <div className="w-16 h-16 rounded-full bg-[#25D366]/10 flex items-center justify-center mx-auto animate-pulse-slow">
-                    <MessageCircle className="text-[#25D366]" size={32} />
-                  </div>
-                  <h4 className="font-semibold text-gray-800 mt-4 mb-1">WhatsApp Enquiry 📲</h4>
-                  <p className="text-gray-600 mb-4">
-                    For quick responses to your questions about courses and job opportunities
-                  </p>
-                </div>
 
-                <div className="space-y-4">
-                  <div>
-                    <p className="text-gray-700 mb-2">Contact our team directly:</p>
-                    <a 
-                      href="https://wa.me/917057617979" 
-                      target="_blank"
-                      className="btn-primary bg-[#25D366] w-full flex items-center justify-center"
-                    >
-                      <MessageCircle size={18} className="mr-2" />
-                      <span>Message on WhatsApp</span>
-                    </a>
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <FormField
+                      control={form.control}
+                      name="name"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="flex items-center gap-1">
+                            <User size={16} className="text-fortune-green" /> Your Name
+                          </FormLabel>
+                          <FormControl>
+                            <Input placeholder="John Doe" {...field} className="focus:ring-fortune-green" />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="flex items-center gap-1">
+                            <Mail size={16} className="text-fortune-pink" /> Email Address
+                          </FormLabel>
+                          <FormControl>
+                            <Input placeholder="you@example.com" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
                   </div>
-
-                  <div className="text-center mt-6">
-                    <p className="text-gray-500 text-sm">
-                      Or call us directly at <span className="font-medium">+91 7057617979</span>
-                    </p>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <FormField
+                      control={form.control}
+                      name="phone"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="flex items-center gap-1">
+                            <Phone size={16} className="text-fortune-orange" /> Phone Number
+                          </FormLabel>
+                          <FormControl>
+                            <Input placeholder="+91 9876543210" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    
+                    <FormField
+                      control={form.control}
+                      name="subject"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="flex items-center gap-1">
+                            <FileText size={16} className="text-fortune-blue" /> Subject
+                          </FormLabel>
+                          <FormControl>
+                            <Input placeholder="Course Inquiry" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
                   </div>
-                </div>
-              </div>
+                  
+                  <FormField
+                    control={form.control}
+                    name="message"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="flex items-center gap-1">
+                          <MessageCircle size={16} className="text-fortune-purple" /> Your Message
+                        </FormLabel>
+                        <FormControl>
+                          <Textarea placeholder="I would like to know more about..." rows={5} {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <button 
+                    type="submit" 
+                    className={`w-full py-3 px-6 text-white font-medium rounded-lg flex items-center justify-center gap-2 transition-all duration-300 ${
+                      isSubmitting 
+                        ? "bg-gray-400 cursor-not-allowed" 
+                        : "bg-gradient-to-r from-fortune-green to-fortune-blue hover:shadow-lg"
+                    }`}
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <>Processing...</>
+                    ) : (
+                      <>
+                        <Send size={18} className="animate-pulse" />
+                        Send Message
+                      </>
+                    )}
+                  </button>
+                </form>
+              </Form>
             </div>
           </div>
         </div>
