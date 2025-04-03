@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight, Award, BookOpen, Briefcase, Globe, User, CheckCircle, MessageCircle, GraduationCap, MapPin, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -50,7 +49,7 @@ const testimonials = [
 const Home = () => {
   return (
     <div className="min-h-screen">
-      {/* Enhanced Hero Section with Background Image */}
+      {/* Enhanced Hero Section with Background Image - Improved based on the image reference */}
       <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
@@ -63,56 +62,59 @@ const Home = () => {
         
         <div className="container relative z-10 mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
           <div className="md:w-1/2 mb-12 md:mb-0 text-white">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
               Your Gateway to Global Opportunities 🌎
             </h1>
-            <p className="text-lg md:text-xl mb-8 max-w-xl animate-fade-in">
+            <p className="text-xl md:text-2xl mb-8 max-w-xl animate-fade-in">
               Unlock new horizons with Fortune Technology's language courses and 
               international job placement services tailored for your success.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in">
-              <Link to="/courses" className="btn-primary bg-white text-fortune-pink hover:bg-opacity-90 animate-pulse-slow flex items-center justify-center gap-2">
-                <GraduationCap size={20} />
+              <Link 
+                to="/courses" 
+                className="bg-white text-fortune-pink hover:bg-opacity-90 text-lg font-medium py-3 px-8 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center gap-2 animate-pulse-slow"
+              >
+                <GraduationCap size={24} />
                 <span>Explore Courses</span>
               </Link>
               <a 
                 href="https://wa.me/917057617979" 
                 target="_blank"
                 rel="noreferrer"
-                className="btn-primary bg-fortune-green hover:bg-fortune-green/90 flex items-center justify-center gap-2"
+                className="bg-fortune-green hover:bg-fortune-green/90 text-white text-lg font-medium py-3 px-8 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
               >
-                <MessageCircle size={20} />
+                <MessageCircle size={24} />
                 <span>Get in Touch</span>
               </a>
             </div>
           </div>
           <div className="md:w-2/5 animate-slide-in">
-            <div className="bg-white p-7 rounded-2xl shadow-2xl backdrop-blur-sm bg-white/95 transform hover:scale-105 transition-all duration-300">
-              <h2 className="text-fortune-pink text-2xl font-bold mb-4">Begin Your Journey Today ✈️</h2>
-              <p className="text-gray-700 mb-6">
+            <div className="bg-white p-8 rounded-2xl shadow-2xl backdrop-blur-sm bg-white/95 transform hover:scale-105 transition-all duration-300">
+              <h2 className="text-fortune-pink text-3xl font-bold mb-4">Begin Your Journey Today ✈️</h2>
+              <p className="text-gray-700 mb-6 text-lg">
                 Get personalized guidance on language courses and international career opportunities from certified experts.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <CheckCircle className="text-fortune-green" size={20} />
-                  <span className="text-gray-800">Certified Language Teachers</span>
+                  <CheckCircle className="text-fortune-green" size={24} />
+                  <span className="text-gray-800 text-lg">Certified Language Teachers</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <CheckCircle className="text-fortune-green" size={20} />
-                  <span className="text-gray-800">Job Placement Assistance</span>
+                  <CheckCircle className="text-fortune-green" size={24} />
+                  <span className="text-gray-800 text-lg">Job Placement Assistance</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <CheckCircle className="text-fortune-green" size={20} />
-                  <span className="text-gray-800">Visa Application Support</span>
+                  <CheckCircle className="text-fortune-green" size={24} />
+                  <span className="text-gray-800 text-lg">Visa Application Support</span>
                 </div>
               </div>
               <a 
                 href="https://wa.me/917057617979" 
                 target="_blank"
                 rel="noreferrer"
-                className="btn-primary w-full mt-6 flex items-center justify-center gap-2 bg-gradient-to-r from-fortune-pink to-fortune-orange"
+                className="w-full mt-8 bg-gradient-to-r from-fortune-pink to-fortune-orange text-white text-lg font-medium py-4 px-6 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center gap-2 hover:shadow-xl"
               >
-                <MessageCircle size={18} />
+                <MessageCircle size={22} />
                 <span>Connect on WhatsApp</span>
               </a>
             </div>
@@ -121,24 +123,24 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4">
             <div className="text-center p-6 rounded-lg hover:shadow-md transition-all duration-300 animate-fade-in stagger-1">
-              <h3 className="text-4xl md:text-5xl font-bold text-fortune-pink mb-2">5+</h3>
-              <p className="text-gray-600">Language Courses</p>
+              <h3 className="text-5xl md:text-6xl font-bold text-fortune-pink mb-2">5+</h3>
+              <p className="text-lg text-gray-600">Language Courses</p>
             </div>
             <div className="text-center p-6 rounded-lg hover:shadow-md transition-all duration-300 animate-fade-in stagger-2">
-              <h3 className="text-4xl md:text-5xl font-bold text-fortune-orange mb-2">10+</h3>
-              <p className="text-gray-600">Years Experience</p>
+              <h3 className="text-5xl md:text-6xl font-bold text-fortune-orange mb-2">10+</h3>
+              <p className="text-lg text-gray-600">Years Experience</p>
             </div>
             <div className="text-center p-6 rounded-lg hover:shadow-md transition-all duration-300 animate-fade-in stagger-3">
-              <h3 className="text-4xl md:text-5xl font-bold text-fortune-green mb-2">500+</h3>
-              <p className="text-gray-600">Success Stories</p>
+              <h3 className="text-5xl md:text-6xl font-bold text-fortune-green mb-2">500+</h3>
+              <p className="text-lg text-gray-600">Success Stories</p>
             </div>
             <div className="text-center p-6 rounded-lg hover:shadow-md transition-all duration-300 animate-fade-in stagger-4">
-              <h3 className="text-4xl md:text-5xl font-bold text-fortune-blue mb-2">7+</h3>
-              <p className="text-gray-600">Countries</p>
+              <h3 className="text-5xl md:text-6xl font-bold text-fortune-blue mb-2">7+</h3>
+              <p className="text-lg text-gray-600">Countries</p>
             </div>
           </div>
         </div>
@@ -147,8 +149,8 @@ const Home = () => {
       {/* Features Section with Animation */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="section-title text-center animate-fade-in">Why Choose Fortune Technology ✨</h2>
-          <p className="text-gray-600 text-center max-w-3xl mx-auto mb-12 animate-fade-in">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text text-center animate-fade-in">Why Choose Fortune Technology ✨</h2>
+          <p className="text-gray-600 text-lg text-center max-w-3xl mx-auto mb-12 animate-fade-in">
             We offer comprehensive language education and job placement services 
             to help you achieve your international career goals.
           </p>
@@ -157,28 +159,28 @@ const Home = () => {
             {/* Cards with Animation */}
             <div className="animate-fade-in stagger-1">
               <FeatureCard 
-                icon={<BookOpen className="text-fortune-pink" size={36} />}
+                icon={<BookOpen className="text-fortune-pink" size={42} />}
                 title="5+ Language Courses 🗣️"
                 description="Learn from a variety of language courses tailored to your needs."
               />
             </div>
             <div className="animate-fade-in stagger-2">
               <FeatureCard 
-                icon={<User className="text-fortune-orange" size={36} />}
+                icon={<User className="text-fortune-orange" size={42} />}
                 title="Expert Native Instructors 👨‍🏫"
                 description="Learn from certified language experts with real-world experience."
               />
             </div>
             <div className="animate-fade-in stagger-3">
               <FeatureCard 
-                icon={<Award className="text-fortune-green" size={36} />}
+                icon={<Award className="text-fortune-green" size={42} />}
                 title="Lifetime Access 🔄"
                 description="Get unlimited access to course materials even after completion."
               />
             </div>
             <div className="animate-fade-in stagger-4">
               <FeatureCard 
-                icon={<Briefcase className="text-fortune-blue" size={36} />}
+                icon={<Briefcase className="text-fortune-blue" size={42} />}
                 title="Job Assistance 💼"
                 description="Receive guidance for job applications and placement abroad."
               />
@@ -409,10 +411,10 @@ const Home = () => {
 // Component for feature cards
 const FeatureCard = ({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) => {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-full">
+    <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-full">
       <div className="mb-4">{icon}</div>
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <p className="text-gray-600">{description}</p>
+      <h3 className="text-2xl font-semibold mb-3">{title}</h3>
+      <p className="text-gray-600 text-lg">{description}</p>
     </div>
   );
 };
@@ -468,7 +470,7 @@ const QuickLinkCard = ({
   return (
     <div className="flex bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300">
       <div className={`bg-gradient-to-b ${colorClass} p-6 flex items-center justify-center text-white`}>
-        <div className="w-12">{icon}</div>
+        <div className="w-16">{icon}</div>
       </div>
       <div className="p-6 flex-1">
         <h3 className="text-xl font-semibold mb-2">{title}</h3>

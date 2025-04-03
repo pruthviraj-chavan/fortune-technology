@@ -14,10 +14,10 @@ const WhatsAppButton = () => {
   return (
     <button
       onClick={handleWhatsAppClick}
-      className="whatsapp-float"
+      className="whatsapp-float flex items-center gap-2"
       aria-label="Contact us on WhatsApp"
     >
-      <MessageCircle size={28} />
+      <MessageCircle size={32} />
     </button>
   );
 };
