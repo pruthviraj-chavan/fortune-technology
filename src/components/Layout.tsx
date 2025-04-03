@@ -4,6 +4,14 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import WhatsAppButton from './WhatsAppButton';
 
+// Add Google Maps type definitions
+declare global {
+  interface Window {
+    google: any;
+    initMap: () => void;
+  }
+}
+
 interface LayoutProps {
   children: React.ReactNode;
 }

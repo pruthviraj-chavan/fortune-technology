@@ -69,6 +69,11 @@ export default {
 					red: '#FF5B7F',
 					green: '#50C878',
 					light: '#FFAA85',
+					purple: '#9b87f5',
+					teal: '#4FD1C5',
+					blue: '#63B3ED',
+					yellow: '#F6E05E',
+					indigo: '#7F9CF5'
 				}
 			},
 			borderRadius: {
@@ -100,18 +105,27 @@ export default {
 				'pulse-slow': {
 					'0%, 100%': { opacity: '1' },
 					'50%': { opacity: '0.8' }
+				},
+				'spin-slow': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'float': 'float 6s ease-in-out infinite',
-				'pulse-slow': 'pulse-slow 4s infinite'
+				'pulse-slow': 'pulse-slow 4s infinite',
+				'spin-slow': 'spin-slow 8s linear infinite'
 			},
 			backgroundImage: {
 				'gradient-pink': 'linear-gradient(135deg, #FF6B95 0%, #FFAA85 100%)',
 				'gradient-orange-pink': 'linear-gradient(135deg, #FF9F5B 0%, #FF6B95 100%)',
-				'gradient-green-orange': 'linear-gradient(135deg, #50C878 0%, #FF9F5B 100%)'
+				'gradient-green-orange': 'linear-gradient(135deg, #50C878 0%, #FF9F5B 100%)',
+				'gradient-vibrant': 'linear-gradient(135deg, #7F9CF5 0%, #E9D8FD 100%)',
+				'gradient-sunset': 'linear-gradient(135deg, #FEB2B2 0%, #FBD38D 100%)',
+				'gradient-ocean': 'linear-gradient(135deg, #4FD1C5 0%, #63B3ED 100%)',
+				'gradient-forest': 'linear-gradient(135deg, #9AE6B4 0%, #4FD1C5 100%)'
 			}
 		}
 	},

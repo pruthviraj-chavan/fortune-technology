@@ -121,3 +121,89 @@
 .whatsapp-float {
   @apply fixed bottom-6 right-6 bg-[#25D366] text-white p-3 rounded-full shadow-lg z-50 animate-bounce hover:animate-none transition-all duration-300;
 }
+
+/* Animation Classes */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  0% { transform: translateX(-50px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.8s ease-out forwards;
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s infinite ease-in-out;
+}
+
+.animate-float {
+  animation: float 5s infinite ease-in-out;
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* Enhanced Gradients */
+.gradient-vibrant {
+  @apply bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500;
+}
+
+.gradient-sunrise {
+  @apply bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500;
+}
+
+.gradient-ocean {
+  @apply bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500;
+}
+
+.gradient-forest {
+  @apply bg-gradient-to-r from-emerald-400 via-green-500 to-teal-500;
+}
+
+/* Image Styles */
+.img-overlay {
+  @apply relative overflow-hidden rounded-lg;
+}
+
+.img-overlay::after {
+  @apply content-[''] absolute inset-0 bg-black/30 transition-all;
+}
+
+.img-overlay:hover::after {
+  @apply bg-black/10;
+}
+
+.img-card {
+  @apply object-cover w-full h-full transition-transform duration-500 hover:scale-110;
+}
+
+/* Card Enhanced Styles */
+.enhanced-card {
+  @apply overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300;
+}
+
+.enhanced-card-content {
+  @apply p-6 bg-white;
+}
