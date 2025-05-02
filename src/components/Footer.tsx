@@ -66,7 +66,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="border-t border-gray-200 mt-8 pt-6 text-center">
           <p className="text-gray-600">
-            Copyright ©2025 | Created by <span className="font-medium">Pruthviraj Chavan</span>, Powered by <span className="font-medium">Fortune Technology</span>
+            Copyright ©2025 | Created by <span className="font-medium">dieVektor.tech - Pruthviraj Chavan</span>, Powered by <span className="font-medium">Fortune Technology</span>
           </p>
         </div>
       </div>
