@@ -1,43 +1,48 @@
-
 import React from 'react';
 import { motion } from "framer-motion";
 
 const partners = [
   { 
     id: 1, 
-    name: "Oxford University", 
-    logo: "/assets/partners/oxford.png",
-    imageUrl: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&q=80"
+    name: "University of Oxford", 
+    logo: "https://logo.clearbit.com/ox.ac.uk",
+    imageUrl: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&q=80&w=800",
+    website: "ox.ac.uk"
   },
   { 
     id: 2, 
-    name: "Cambridge University", 
-    logo: "/assets/partners/cambridge.png",
-    imageUrl: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&q=80"
+    name: "University of Cambridge", 
+    logo: "https://logo.clearbit.com/cam.ac.uk",
+    imageUrl: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&q=80&w=800",
+    website: "cam.ac.uk"
   },
   { 
     id: 3, 
     name: "Harvard University", 
-    logo: "/assets/partners/harvard.png",
-    imageUrl: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?auto=format&fit=crop&q=80"
+    logo: "https://logo.clearbit.com/harvard.edu",
+    imageUrl: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?auto=format&fit=crop&q=80&w=800",
+    website: "harvard.edu"
   },
   { 
     id: 4, 
     name: "Stanford University", 
-    logo: "/assets/partners/stanford.png",
-    imageUrl: "https://images.unsplash.com/photo-1431576901776-e539bd916ba2?auto=format&fit=crop&q=80"
+    logo: "https://logo.clearbit.com/stanford.edu",
+    imageUrl: "https://images.unsplash.com/photo-1431576901776-e539bd916ba2?auto=format&fit=crop&q=80&w=800",
+    website: "stanford.edu"
   },
   { 
     id: 5, 
-    name: "MIT", 
-    logo: "/assets/partners/mit.png",
-    imageUrl: "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?auto=format&fit=crop&q=80"
+    name: "Massachusetts Institute of Technology", 
+    logo: "https://logo.clearbit.com/mit.edu",
+    imageUrl: "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?auto=format&fit=crop&q=80&w=800",
+    website: "mit.edu"
   },
   { 
     id: 6, 
     name: "University of Toronto", 
-    logo: "/assets/partners/toronto.png",
-    imageUrl: "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?auto=format&fit=crop&q=80"
+    logo: "https://logo.clearbit.com/utoronto.ca",
+    imageUrl: "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?auto=format&fit=crop&q=80&w=800",
+    website: "utoronto.ca"
   },
 ];
 
@@ -98,27 +103,38 @@ const PartnersSection = () => {
               variants={itemVariants}
               className="group h-full"
             >
-              <div className="flex flex-col h-full rounded-xl hover:shadow-lg transition-all duration-300 bg-white/80 backdrop-blur-sm border border-gray-100 overflow-hidden">
-                <div className="h-48 w-full overflow-hidden">
-                  <img 
-                    src={partner.imageUrl} 
-                    alt={`${partner.name} campus`} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-                <div className="p-6 flex flex-col items-center">
-                  <div className="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center p-2 mb-4 bg-gradient-to-br from-fortune-pink/20 to-fortune-blue/20">
+              <a
+                href={`https://${partner.website}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Visit ${partner.name}'s website`}
+                title={`Visit ${partner.name}`}
+                className="block h-full"
+              >
+                <div className="flex flex-col h-full rounded-xl hover:shadow-lg transition-all duration-300 bg-white/80 backdrop-blur-sm border border-gray-100 overflow-hidden">
+                  <div className="h-48 w-full overflow-hidden">
                     <img 
-                      src={partner.logo} 
-                      alt={partner.name} 
-                      className="max-w-full max-h-full object-contain"
+                      src={partner.imageUrl} 
+                      alt={`${partner.name} campus`} 
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      loading="lazy"
                     />
                   </div>
-                  <h3 className="text-center text-lg font-medium text-gray-800 group-hover:text-fortune-pink transition-colors duration-300">
-                    {partner.name}
-                  </h3>
+                  <div className="p-6 flex flex-col items-center">
+                    <div className="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center p-2 mb-4 bg-gradient-to-br from-fortune-pink/20 to-fortune-blue/20">
+                      <img 
+                        src={partner.logo} 
+                        alt={partner.name} 
+                        className="max-w-full max-h-full object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+                    <h3 className="text-center text-lg font-medium text-gray-800 group-hover:text-fortune-pink transition-colors duration-300">
+                      {partner.name}
+                    </h3>
+                  </div>
                 </div>
-              </div>
+              </a>
             </motion.div>
           ))}
         </motion.div>
