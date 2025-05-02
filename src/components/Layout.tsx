@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import WhatsAppButton from './WhatsAppButton';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // Add Google Maps type definitions
 declare global {
@@ -21,8 +22,13 @@ const Layout = () => {
       const loadGoogleMapsScript = () => {
         if (document.querySelector('script[src*="maps.googleapis.com/maps/api"]')) return;
         
+        window.initMap = () => {
+          // This empty function will be called when Google Maps script loads
+          console.log("Google Maps API loaded successfully");
+        };
+        
         const script = document.createElement('script');
-        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBz6RXoH9ds4EuBadQBMMJRTL5ECtlqlQM&v=weekly`;
+        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBz6RXoH9ds4EuBadQBMMJRTL5ECtlqlQM&v=weekly&callback=initMap`;
         script.async = true;
         script.defer = true;
         document.head.appendChild(script);
@@ -33,11 +39,18 @@ const Layout = () => {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
-      <main className="flex-grow w-full overflow-x-hidden">
-        <Outlet />
-      </main>
+      <motion.main 
+        className="flex-grow w-full overflow-x-hidden"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+      >
+        <AnimatePresence mode="wait">
+          <Outlet />
+        </AnimatePresence>
+      </motion.main>
       <Footer />
       <WhatsAppButton />
     </div>

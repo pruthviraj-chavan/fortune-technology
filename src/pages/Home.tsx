@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight, Award, BookOpen, Briefcase, Globe, User, CheckCircle, MessageCircle, GraduationCap, MapPin, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -10,6 +9,7 @@ import TestimonialsSection from '@/components/TestimonialsSection';
 import PartnersSection from '@/components/PartnersSection';
 import UpcomingBatchesSection from '@/components/UpcomingBatchesSection';
 import FAQSection from '@/components/FAQSection';
+import StaffSection from '@/components/StaffSection';
 
 // Country images for destinations
 const countryImages = {
@@ -48,7 +48,7 @@ const testimonials = [
     name: "Priya Sharma",
     role: "Finance Analyst in Australia",
     content: "Mr. Chavan's teaching methodology is unique and effective. I'm now working in Sydney thanks to Fortune Technology.",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80"
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69db8e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80"
   }
 ];
 
@@ -291,6 +291,9 @@ const Home = () => {
       {/* Partners Section */}
       <PartnersSection />
       
+      {/* Staff Section */}
+      <StaffSection />
+      
       {/* FAQ Section */}
       <FAQSection />
 
@@ -362,6 +365,10 @@ const Home = () => {
             <Link to="/courses" className="btn-primary bg-fortune-green hover:bg-fortune-green/90 flex items-center justify-center gap-2 text-base md:text-lg py-2 md:py-3">
               <GraduationCap size={20} />
               <span>Explore Courses</span>
+            </Link>
+            <Link to="/blog" className="btn-primary bg-fortune-blue hover:bg-fortune-blue/90 flex items-center justify-center gap-2 text-base md:text-lg py-2 md:py-3">
+              <BookOpen size={20} />
+              <span>Educational Videos</span>
             </Link>
           </div>
         </div>
