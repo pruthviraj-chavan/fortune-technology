@@ -24,4 +24,4 @@ User-agent: facebookexternalhit
 Allow: /
 
 # Sitemap location
-Sitemap: https://fortunetechnology.com/sitemap.xml
+Sitemap: https://fortunekolhapur.com/sitemap.xml
