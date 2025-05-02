@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import WhatsAppButton from './WhatsAppButton';
@@ -15,6 +15,13 @@ declare global {
 }
 
 const Layout = () => {
+  const location = useLocation();
+  
+  // Scroll to top when route changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+  
   useEffect(() => {
     // Preload Google Maps API in the Layout component
     // This ensures it's loaded once for the entire application
@@ -48,7 +55,15 @@ const Layout = () => {
         transition={{ duration: 0.3 }}
       >
         <AnimatePresence mode="wait">
-          <Outlet />
+          <motion.div
+            key={location.pathname}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Outlet />
+          </motion.div>
         </AnimatePresence>
       </motion.main>
       <Footer />
