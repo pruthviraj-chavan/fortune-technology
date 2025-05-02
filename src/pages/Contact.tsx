@@ -1,5 +1,4 @@
-
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, MessageCircle, Send, User, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useToast } from '@/components/ui/use-toast';
@@ -19,10 +18,9 @@ const formSchema = z.object({
 });
 
 const Contact = () => {
-  const mapRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -48,60 +46,6 @@ const Contact = () => {
       setIsSubmitting(false);
     }, 1500);
   };
-  
-  useEffect(() => {
-    // Initialize Google Maps
-    const initMap = () => {
-      if (mapRef.current && window.google) {
-        // Updated coordinates for 8th Ln, opposite Matoshri apartment, Kolhapur
-        const location = { lat: 16.703594, lng: 74.234016 }; 
-        const map = new window.google.maps.Map(mapRef.current, {
-          zoom: 16,
-          center: location,
-          mapId: 'fdc7ba9fdf410ab7',
-          disableDefaultUI: true,
-          zoomControl: true,
-        });
-        
-        const marker = new window.google.maps.Marker({
-          position: location,
-          map: map,
-          title: 'Fortune Technology',
-          animation: window.google.maps.Animation.DROP
-        });
-
-        const infowindow = new window.google.maps.InfoWindow({
-          content: `<div class="p-2">
-            <strong class="text-lg">Fortune Technology</strong>
-            <p>8th Ln, opposite Matoshri apartment, near GP Parsik Bank, Poorvarang, Mahalaxminagar, Rajarampuri, Kolhapur, Maharashtra 416008</p>
-          </div>`,
-        });
-
-        marker.addListener('click', () => {
-          infowindow.open(map, marker);
-        });
-        
-        // Open info window by default
-        infowindow.open(map, marker);
-      }
-    };
-
-    // Load Google Maps API
-    if (!window.google) {
-      const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBz6RXoH9ds4EuBadQBMMJRTL5ECtlqlQM&callback=initMap&v=weekly`;
-      script.async = true;
-      script.defer = true;
-      window.initMap = initMap;
-      document.head.appendChild(script);
-    } else {
-      initMap();
-    }
-
-    return () => {
-      window.initMap = null;
-    };
-  }, []);
 
   return (
     <div className="min-h-screen">
@@ -143,7 +87,6 @@ const Contact = () => {
                     </p>
                   </div>
                 </div>
-
                 <div className="bg-white p-6 rounded-lg shadow-md flex animate-slide-in stagger-2">
                   <div className="shrink-0 mr-4">
                     <div className="w-12 h-12 rounded-full bg-fortune-orange/10 flex items-center justify-center">
@@ -158,7 +101,6 @@ const Contact = () => {
                     </p>
                   </div>
                 </div>
-
                 <div className="bg-white p-6 rounded-lg shadow-md flex animate-slide-in stagger-3">
                   <div className="shrink-0 mr-4">
                     <div className="w-12 h-12 rounded-full bg-fortune-green/10 flex items-center justify-center">
@@ -173,7 +115,6 @@ const Contact = () => {
                     </p>
                   </div>
                 </div>
-
                 <div className="bg-white p-6 rounded-lg shadow-md flex animate-slide-in stagger-4">
                   <div className="shrink-0 mr-4">
                     <div className="w-12 h-12 rounded-full bg-fortune-red/10 flex items-center justify-center">
@@ -191,13 +132,12 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* New Contact Form */}
+            {/* Contact Form */}
             <div className="bg-white rounded-xl shadow-lg p-8 animate-fade-in">
               <div className="text-center mb-6">
                 <h2 className="text-2xl font-bold text-fortune-blue">Send Us a Message 📨</h2>
                 <p className="text-gray-600 mt-2">Fill out the form below and we'll get back to you shortly</p>
               </div>
-
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -216,7 +156,6 @@ const Contact = () => {
                         </FormItem>
                       )}
                     />
-                    
                     <FormField
                       control={form.control}
                       name="email"
@@ -233,7 +172,6 @@ const Contact = () => {
                       )}
                     />
                   </div>
-                  
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <FormField
                       control={form.control}
@@ -250,7 +188,6 @@ const Contact = () => {
                         </FormItem>
                       )}
                     />
-                    
                     <FormField
                       control={form.control}
                       name="subject"
@@ -267,7 +204,6 @@ const Contact = () => {
                       )}
                     />
                   </div>
-                  
                   <FormField
                     control={form.control}
                     name="message"
@@ -283,7 +219,6 @@ const Contact = () => {
                       </FormItem>
                     )}
                   />
-                  
                   <button 
                     type="submit" 
                     className={`w-full py-3 px-6 text-white font-medium rounded-lg flex items-center justify-center gap-2 transition-all duration-300 ${
@@ -309,12 +244,22 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Map Section */}
+      {/* Map Section (Updated with iframe) */}
       <section className="py-16 bg-gray-50 animate-fade-in">
         <div className="container mx-auto px-4">
           <h2 className="section-title text-center mb-8">Visit Our Institute 🏢</h2>
-          <div className="bg-white rounded-lg shadow-md p-4">
-            <div id="map" ref={mapRef} className="h-96 w-full rounded-lg"></div>
+          <div className="bg-white rounded-lg shadow-md overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11823.229427791266!2d74.22664425541988!3d16.694393099999992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc101c089c67793%3A0x19e4d135ed483514!2sFortune%20Technology!5e1!3m2!1sen!2sin!4v1746213392297!5m2!1sen!2sin"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Fortune Technology Location Map"
+              className="w-full h-96"
+            ></iframe>
           </div>
         </div>
       </section>
@@ -330,6 +275,7 @@ const Contact = () => {
             <a 
               href="https://wa.me/917057617979" 
               target="_blank"
+              rel="noopener noreferrer"
               className="btn-secondary bg-white text-fortune-blue flex items-center justify-center"
             >
               <MessageCircle size={18} className="mr-2" />
