@@ -53,9 +53,10 @@ const Contact = () => {
     // Initialize Google Maps
     const initMap = () => {
       if (mapRef.current && window.google) {
-        const location = { lat: 16.7050, lng: 74.2433 }; // Kolhapur coordinates
+        // Updated coordinates for 8th Ln, opposite Matoshri apartment, Kolhapur
+        const location = { lat: 16.703594, lng: 74.234016 }; 
         const map = new window.google.maps.Map(mapRef.current, {
-          zoom: 15,
+          zoom: 16,
           center: location,
           mapId: 'fdc7ba9fdf410ab7',
           disableDefaultUI: true,
@@ -70,12 +71,18 @@ const Contact = () => {
         });
 
         const infowindow = new window.google.maps.InfoWindow({
-          content: `<div class="p-2"><strong class="text-lg">Fortune Technology</strong><p>Rajarampuri 8th Lane, Kolhapur</p></div>`,
+          content: `<div class="p-2">
+            <strong class="text-lg">Fortune Technology</strong>
+            <p>8th Ln, opposite Matoshri apartment, near GP Parsik Bank, Poorvarang, Mahalaxminagar, Rajarampuri, Kolhapur, Maharashtra 416008</p>
+          </div>`,
         });
 
         marker.addListener('click', () => {
           infowindow.open(map, marker);
         });
+        
+        // Open info window by default
+        infowindow.open(map, marker);
       }
     };
 

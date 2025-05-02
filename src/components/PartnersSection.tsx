@@ -6,32 +6,38 @@ const partners = [
   { 
     id: 1, 
     name: "Oxford University", 
-    logo: "/assets/partners/oxford.png"
+    logo: "/assets/partners/oxford.png",
+    imageUrl: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&q=80"
   },
   { 
     id: 2, 
     name: "Cambridge University", 
-    logo: "/assets/partners/cambridge.png"
+    logo: "/assets/partners/cambridge.png",
+    imageUrl: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&q=80"
   },
   { 
     id: 3, 
     name: "Harvard University", 
-    logo: "/assets/partners/harvard.png"
+    logo: "/assets/partners/harvard.png",
+    imageUrl: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?auto=format&fit=crop&q=80"
   },
   { 
     id: 4, 
     name: "Stanford University", 
-    logo: "/assets/partners/stanford.png"
+    logo: "/assets/partners/stanford.png",
+    imageUrl: "https://images.unsplash.com/photo-1431576901776-e539bd916ba2?auto=format&fit=crop&q=80"
   },
   { 
     id: 5, 
     name: "MIT", 
-    logo: "/assets/partners/mit.png"
+    logo: "/assets/partners/mit.png",
+    imageUrl: "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?auto=format&fit=crop&q=80"
   },
   { 
     id: 6, 
     name: "University of Toronto", 
-    logo: "/assets/partners/toronto.png"
+    logo: "/assets/partners/toronto.png",
+    imageUrl: "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?auto=format&fit=crop&q=80"
   },
 ];
 
@@ -80,7 +86,7 @@ const PartnersSection = () => {
         </motion.div>
         
         <motion.div 
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -90,17 +96,28 @@ const PartnersSection = () => {
             <motion.div 
               key={partner.id}
               variants={itemVariants}
-              className="group"
+              className="group h-full"
             >
-              <div className="flex flex-col items-center justify-center p-4 rounded-xl hover:shadow-lg transition-all duration-300 bg-white/80 backdrop-blur-sm border border-gray-100 h-full">
-                <div className="h-24 w-24 md:h-28 md:w-28 mb-4 rounded-full overflow-hidden flex items-center justify-center p-2 bg-gradient-to-br from-fortune-pink/20 to-fortune-blue/20 group-hover:from-fortune-pink/30 group-hover:to-fortune-blue/30 transition-all duration-500">
+              <div className="flex flex-col h-full rounded-xl hover:shadow-lg transition-all duration-300 bg-white/80 backdrop-blur-sm border border-gray-100 overflow-hidden">
+                <div className="h-48 w-full overflow-hidden">
                   <img 
-                    src={partner.logo} 
-                    alt={partner.name} 
-                    className="max-w-full max-h-full object-contain transform group-hover:scale-105 transition-transform duration-500"
+                    src={partner.imageUrl} 
+                    alt={`${partner.name} campus`} 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
-                <p className="text-center text-sm md:text-base font-medium text-gray-700 group-hover:text-fortune-pink transition-colors duration-300">{partner.name}</p>
+                <div className="p-6 flex flex-col items-center">
+                  <div className="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center p-2 mb-4 bg-gradient-to-br from-fortune-pink/20 to-fortune-blue/20">
+                    <img 
+                      src={partner.logo} 
+                      alt={partner.name} 
+                      className="max-w-full max-h-full object-contain"
+                    />
+                  </div>
+                  <h3 className="text-center text-lg font-medium text-gray-800 group-hover:text-fortune-pink transition-colors duration-300">
+                    {partner.name}
+                  </h3>
+                </div>
               </div>
             </motion.div>
           ))}
