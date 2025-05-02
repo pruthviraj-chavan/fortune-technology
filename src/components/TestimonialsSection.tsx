@@ -43,15 +43,7 @@ const testimonials: Testimonial[] = [
     rating: 5,
     quote: "The personalized attention and study materials provided by Fortune Technology were key to my success in IELTS."
   },
-  {
-    id: 4,
-    name: "Dnyanesh Kulkarni",
-    university: "TUFTS University",
-    country: "USA",
-    image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&auto=format&fit=crop&w=120&q=80",
-    rating: 5,
-    quote: "From language preparation to visa guidance, Fortune Technology provided end-to-end support for my study abroad journey."
-  },
+
 
 ];
 
