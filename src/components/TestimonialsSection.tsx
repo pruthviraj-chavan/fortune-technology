@@ -52,15 +52,7 @@ const testimonials: Testimonial[] = [
     rating: 5,
     quote: "From language preparation to visa guidance, Fortune Technology provided end-to-end support for my study abroad journey."
   },
-  {
-    id: 5,
-    name: "Abhishek Chakote",
-    university: "TUFTS University",
-    country: "USA",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=120&q=80",
-    rating: 5,
-    quote: "Their mock tests and personalized feedback sessions were instrumental in achieving my target IELTS score of 8.5."
-  }
+
 ];
 
 const TestimonialsSection = () => {
