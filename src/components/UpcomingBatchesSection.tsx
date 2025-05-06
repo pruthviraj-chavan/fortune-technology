@@ -22,7 +22,7 @@ const batches: Batch[] = [
     date: "12 May 2025",
     time: "10:00 AM - 12:00 PM",
     mode: "Offline + Online",
-    location: "Pune Center",
+    location: "Kolhapur Center",
     icon: "🇬🇧",
     color: "from-fortune-pink to-fortune-orange"
   },
@@ -31,8 +31,8 @@ const batches: Batch[] = [
     course: "German A1",
     date: "12 May 2025",
     time: "2:00 PM - 4:00 PM",
-    mode: "Offline",
-    location: "Pune Center",
+    mode: "Offline + Online",
+    location: "Kolhapur Center",
     icon: "🇩🇪",
     color: "from-fortune-orange to-fortune-green"
   },
@@ -41,8 +41,8 @@ const batches: Batch[] = [
     course: "German B1",
     date: "10 May 2025",
     time: "6:00 PM - 8:00 PM",
-    mode: "Online",
-    location: "Zoom Classes",
+    mode: "Offline + Online",
+    location: "Kolhapur Center",
     icon: "🇩🇪",
     color: "from-fortune-green to-fortune-blue"
   },
@@ -52,7 +52,7 @@ const batches: Batch[] = [
     date: "20 May 2025",
     time: "11:00 AM - 1:00 PM",
     mode: "Offline + Online",
-    location: "Pune Center",
+    location: "Kolhapur Center",
     icon: "🇩🇪",
     color: "from-fortune-blue to-fortune-indigo"
   },
@@ -61,8 +61,8 @@ const batches: Batch[] = [
     course: "French A1",
     date: "20 May 2025",
     time: "3:00 PM - 5:00 PM",
-    mode: "Online",
-    location: "Zoom Classes",
+    mode: "Offline + Online",
+    location: "Kolhapur Center",
     icon: "🇫🇷",
     color: "from-fortune-indigo to-fortune-purple"
   },
@@ -71,8 +71,8 @@ const batches: Batch[] = [
     course: "Korean",
     date: "12 May 2025",
     time: "5:00 PM - 7:00 PM",
-    mode: "Offline",
-    location: "Pune Center",
+    mode: "Offline + Online",
+    location: "Kolhapur Center",
     icon: "🇰🇷",
     color: "from-fortune-purple to-fortune-pink"
   },
@@ -82,7 +82,7 @@ const batches: Batch[] = [
     date: "12 May 2025",
     time: "9:00 AM - 11:00 AM",
     mode: "Online + Offline",
-    location: "Pune Center",
+    location: "Kolhapur Center",
     icon: "🇪🇸",
     color: "from-fortune-red to-fortune-orange"
   }
