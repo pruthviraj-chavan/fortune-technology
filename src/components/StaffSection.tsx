@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin, Mail } from 'lucide-react';
+import { Linkedin, Mail, Phone } from 'lucide-react';
 
 interface StaffMember {
   id: number;
@@ -9,9 +9,12 @@ interface StaffMember {
   position: string;
   bio: string;
   image: string;
-  social: {
-    linkedin?: string;
+  contact?: {
+    phone?: string;
     email?: string;
+  }
+  social?: {
+    linkedin?: string;
   }
 }
 
@@ -19,23 +22,45 @@ const staffMembers: StaffMember[] = [
   {
     id: 1,
     name: "Kamlesh Chavan",
-    position: "Founder",
-    bio: "With over 10 years of experience in language education and international placements, Kamlesh has helped hundreds of students achieve their dreams of studying and working abroad.",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-    social: {
-      linkedin: "https://linkedin.com",
-      email: "kamlesh@fortunetech.com"
+    position: "Foreign Language Trainer & Founder",
+    bio: "With extensive experience in language education and international placements, Kamlesh has helped hundreds of students achieve their dreams of studying and working abroad.",
+    image: "/lovable-uploads/0f109b97-5d87-464d-9368-c95230d421cd.png",
+    contact: {
+      phone: "+919420961806",
+      email: "fortunetechnologykp@gmail.com"
     }
   },
   {
     id: 2,
     name: "Samruddhi Bhosale",
-    position: "Co-Founder",
-    bio: "Samruddhi brings expertise in IELTS coaching and visa counseling to Fortune Technology, with a passion for helping students navigate the complexities of international education.",
+    position: "Co-Founder & Operation Head",
+    bio: "Samruddhi brings expertise in coordinating operations and managing student interactions at Fortune Technology.",
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-    social: {
-      linkedin: "https://linkedin.com",
-      email: "samruddhi@fortunetech.com"
+    contact: {
+      phone: "+919503714292",
+      email: "fortuneadmin@gmail.com"
+    }
+  },
+  {
+    id: 3,
+    name: "Ishwari Mahadik",
+    position: "English Language Trainer",
+    bio: "Specializing in English language education, Ishwari helps students develop their communication skills with tailored teaching methods.",
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    contact: {
+      phone: "+917276488228",
+      email: "fortunetrainer@gmail.com"
+    }
+  },
+  {
+    id: 4,
+    name: "Neharika Nale",
+    position: "Career Counselor",
+    bio: "Neharika provides expert guidance to students about international education and career pathways suited to their skills and ambitions.",
+    image: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    contact: {
+      phone: "+919665835959",
+      email: "fortuneadmin@gmail.com"
     }
   }
 ];
@@ -57,9 +82,14 @@ const StaffSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-fortune-blue">
             Meet Our Team <span className="text-3xl md:text-4xl">👥</span>
           </h2>
-          <p className="text-gray-600 text-center max-w-3xl mx-auto mb-12 text-lg">
+          <p className="text-gray-600 text-center max-w-3xl mx-auto mb-6 text-lg">
             The dedicated professionals who work tirelessly to help you achieve your global dreams
           </p>
+          <div className="max-w-3xl mx-auto">
+            <blockquote className="text-xl italic text-center text-fortune-blue">
+              "Master Your communication, master your future."
+            </blockquote>
+          </div>
         </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
@@ -85,26 +115,42 @@ const StaffSection = () => {
                   <h3 className="text-2xl font-bold text-fortune-pink mb-1">{member.name}</h3>
                   <p className="text-fortune-blue text-lg font-medium mb-4">— {member.position}</p>
                   <p className="text-gray-600 mb-6">{member.bio}</p>
-                  <div className="mt-auto flex space-x-3">
-                    {member.social.linkedin && (
-                      <a 
-                        href={member.social.linkedin}
-                        target="_blank" 
-                        rel="noreferrer" 
-                        className="p-2 bg-fortune-blue/10 rounded-full text-fortune-blue hover:bg-fortune-blue hover:text-white transition-all duration-300"
-                      >
-                        <Linkedin size={20} />
-                      </a>
-                    )}
-                    {member.social.email && (
-                      <a 
-                        href={`mailto:${member.social.email}`}
-                        className="p-2 bg-fortune-pink/10 rounded-full text-fortune-pink hover:bg-fortune-pink hover:text-white transition-all duration-300"
-                      >
-                        <Mail size={20} />
-                      </a>
-                    )}
-                  </div>
+                  {member.contact && (
+                    <div className="space-y-2 mb-4">
+                      {member.contact.phone && (
+                        <a 
+                          href={`tel:${member.contact.phone}`} 
+                          className="flex items-center text-gray-600 hover:text-fortune-pink"
+                        >
+                          <Phone size={16} className="mr-2" />
+                          <span>{member.contact.phone}</span>
+                        </a>
+                      )}
+                      {member.contact.email && (
+                        <a 
+                          href={`mailto:${member.contact.email}`} 
+                          className="flex items-center text-gray-600 hover:text-fortune-pink"
+                        >
+                          <Mail size={16} className="mr-2" />
+                          <span className="text-sm">{member.contact.email}</span>
+                        </a>
+                      )}
+                    </div>
+                  )}
+                  {member.social && (
+                    <div className="mt-auto flex space-x-3">
+                      {member.social.linkedin && (
+                        <a 
+                          href={member.social.linkedin}
+                          target="_blank" 
+                          rel="noreferrer" 
+                          className="p-2 bg-fortune-blue/10 rounded-full text-fortune-blue hover:bg-fortune-blue hover:text-white transition-all duration-300"
+                        >
+                          <Linkedin size={20} />
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
             </motion.div>

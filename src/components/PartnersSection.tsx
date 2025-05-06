@@ -1,48 +1,42 @@
+
 import React from 'react';
 import { motion } from "framer-motion";
 
 const partners = [
   { 
     id: 1, 
-    name: "University of Oxford", 
-    logo: "https://logo.clearbit.com/ox.ac.uk",
-    imageUrl: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&q=80&w=800",
-    website: "ox.ac.uk"
+    name: "Massachusetts Institute of Technology (MIT)", 
+    logo: "/lovable-uploads/b29fe251-df8d-4716-84b4-f76dc20e593d.png",
+    website: "mit.edu",
+    location: "USA"
   },
   { 
     id: 2, 
-    name: "University of Cambridge", 
-    logo: "https://logo.clearbit.com/cam.ac.uk",
-    imageUrl: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&q=80&w=800",
-    website: "cam.ac.uk"
+    name: "Stanford University", 
+    logo: "/lovable-uploads/aa716603-6d06-4b82-a1cc-21266226a93a.png",
+    website: "stanford.edu",
+    location: "USA"
   },
   { 
     id: 3, 
-    name: "Harvard University", 
-    logo: "https://logo.clearbit.com/harvard.edu",
-    imageUrl: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?auto=format&fit=crop&q=80&w=800",
-    website: "harvard.edu"
+    name: "University of Europe", 
+    logo: "/lovable-uploads/98108df9-dec1-4c13-936b-e7dacdf64493.png",
+    website: "ue-germany.com",
+    location: "Europe"
   },
   { 
     id: 4, 
-    name: "Stanford University", 
-    logo: "https://logo.clearbit.com/stanford.edu",
-    imageUrl: "https://images.unsplash.com/photo-1431576901776-e539bd916ba2?auto=format&fit=crop&q=80&w=800",
-    website: "stanford.edu"
+    name: "University of Oslo", 
+    logo: "/lovable-uploads/4cf02bd2-ece2-4779-be4b-da506cc8c599.png",
+    website: "uio.no",
+    location: "Norway"
   },
   { 
     id: 5, 
-    name: "Massachusetts Institute of Technology", 
-    logo: "https://logo.clearbit.com/mit.edu",
-    imageUrl: "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?auto=format&fit=crop&q=80&w=800",
-    website: "mit.edu"
-  },
-  { 
-    id: 6, 
-    name: "University of Toronto", 
-    logo: "https://logo.clearbit.com/utoronto.ca",
-    imageUrl: "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?auto=format&fit=crop&q=80&w=800",
-    website: "utoronto.ca"
+    name: "University of Bristol", 
+    logo: "/lovable-uploads/0fad941f-d3da-4300-8cf1-3234548b3275.png",
+    website: "bristol.ac.uk",
+    location: "United Kingdom"
   },
 ];
 
@@ -112,26 +106,19 @@ const PartnersSection = () => {
                 className="block h-full"
               >
                 <div className="flex flex-col h-full rounded-xl hover:shadow-lg transition-all duration-300 bg-white/80 backdrop-blur-sm border border-gray-100 overflow-hidden">
-                  <div className="h-48 w-full overflow-hidden">
+                  <div className="h-48 w-full overflow-hidden bg-gray-100 flex items-center justify-center">
                     <img 
-                      src={partner.imageUrl} 
-                      alt={`${partner.name} campus`} 
+                      src={partner.logo} 
+                      alt={`${partner.name}`} 
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       loading="lazy"
                     />
                   </div>
                   <div className="p-6 flex flex-col items-center">
-                    <div className="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center p-2 mb-4 bg-gradient-to-br from-fortune-pink/20 to-fortune-blue/20">
-                      <img 
-                        src={partner.logo} 
-                        alt={partner.name} 
-                        className="max-w-full max-h-full object-contain"
-                        loading="lazy"
-                      />
-                    </div>
                     <h3 className="text-center text-lg font-medium text-gray-800 group-hover:text-fortune-pink transition-colors duration-300">
                       {partner.name}
                     </h3>
+                    <p className="text-center text-sm text-gray-500 mt-1">{partner.location}</p>
                   </div>
                 </div>
               </a>

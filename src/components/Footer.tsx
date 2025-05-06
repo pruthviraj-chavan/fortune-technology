@@ -15,6 +15,9 @@ const Footer = () => {
               Your trusted partner for language courses and abroad job placements.
               We help students achieve their dreams of international education and careers.
             </p>
+            <blockquote className="italic text-fortune-blue border-l-4 border-fortune-pink pl-3 py-1 mb-4">
+              "Master Your communication, master your future."
+            </blockquote>
           </div>
 
           {/* Quick Links */}
@@ -45,15 +48,15 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start space-x-3">
                 <MapPin className="text-fortune-pink shrink-0 mt-1" size={18} />
-                <span className="text-gray-600">Rajarampuri 8th Lane, Kolhapur.</span>
+                <span className="text-gray-600">8th Ln, opposite Matoshri apartment, near GP Parsik Bank, Poorvarang, Mahalaxminagar, Rajarampuri, Kolhapur, Maharashtra 416008</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="text-fortune-pink" size={18} />
-                <span className="text-gray-600">+91 7057617979</span>
+                <span className="text-gray-600">+91 9503714292</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="text-fortune-pink" size={18} />
-                <span className="text-gray-600">info@fortunetech.com</span>
+                <span className="text-gray-600">fortunetechnologykp@gmail.com</span>
               </li>
               <li className="flex items-start space-x-3">
                 <Clock className="text-fortune-pink shrink-0 mt-1" size={18} />

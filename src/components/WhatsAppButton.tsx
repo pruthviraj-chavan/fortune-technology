@@ -5,7 +5,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 
 const WhatsAppButton = () => {
   const isMobile = useIsMobile();
-  const phoneNumber = '917057617979'; // Format: country code + number without + or spaces
+  const phoneNumber = '919503714292'; // Updated phone number
   const message = "Hello, I'm interested in learning more about Fortune Technology's services.";
   
   const handleWhatsAppClick = () => {

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, MessageCircle, Send, User, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -81,9 +82,9 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-gray-800 mb-2">Our Location 📍</h3>
                     <p className="text-gray-600">
-                      Rajarampuri 8th Lane, <br />
-                      Kolhapur, Maharashtra, <br />
-                      India
+                      8th Ln, opposite Matoshri apartment, near GP Parsik Bank, <br />
+                      Poorvarang, Mahalaxminagar, Rajarampuri, <br />
+                      Kolhapur, Maharashtra 416008
                     </p>
                   </div>
                 </div>
@@ -95,7 +96,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-800 mb-2">Phone Number 📱</h3>
-                    <p className="text-gray-600">+91 7057617979</p>
+                    <p className="text-gray-600">+91 9503714292</p>
                     <p className="text-sm text-gray-500 mt-1">
                       Available for calls and WhatsApp messages
                     </p>
@@ -109,7 +110,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-800 mb-2">Email Address ✉️</h3>
-                    <p className="text-gray-600">info@fortunetech.com</p>
+                    <p className="text-gray-600">fortunetechnologykp@gmail.com</p>
                     <p className="text-sm text-gray-500 mt-1">
                       We'll respond within 24 hours
                     </p>
@@ -127,6 +128,77 @@ const Contact = () => {
                       Monday - Saturday: 9:00 AM - 8:00 PM<br />
                       Sunday: Closed
                     </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Team Contact Information */}
+              <div className="mt-10">
+                <h3 className="text-2xl font-bold text-gray-800 mb-6">Meet Our Team 👥</h3>
+                <div className="bg-white p-6 rounded-lg shadow-md">
+                  <blockquote className="text-xl italic text-center text-fortune-blue mb-6">
+                    "Master Your communication, master your future."
+                  </blockquote>
+                  <div className="space-y-6">
+                    <div className="flex flex-col md:flex-row md:items-center gap-4 pb-4 border-b">
+                      <div className="font-medium text-gray-800 flex-grow">
+                        <p className="font-bold">Kamlesh Chavan</p>
+                        <p className="text-sm text-fortune-pink">Foreign Language Trainer & Founder</p>
+                      </div>
+                      <div className="flex flex-col text-gray-600">
+                        <a href="tel:+919420961806" className="flex items-center hover:text-fortune-pink">
+                          <Phone size={16} className="mr-2" /> +91 9420961806
+                        </a>
+                        <a href="mailto:fortunetechnologykp@gmail.com" className="flex items-center text-sm hover:text-fortune-pink">
+                          <Mail size={16} className="mr-2" /> fortunetechnologykp@gmail.com
+                        </a>
+                      </div>
+                    </div>
+                    
+                    <div className="flex flex-col md:flex-row md:items-center gap-4 pb-4 border-b">
+                      <div className="font-medium text-gray-800 flex-grow">
+                        <p className="font-bold">Samruddhi Bhosale</p>
+                        <p className="text-sm text-fortune-blue">Co-Founder & Operation Head</p>
+                      </div>
+                      <div className="flex flex-col text-gray-600">
+                        <a href="tel:+919503714292" className="flex items-center hover:text-fortune-pink">
+                          <Phone size={16} className="mr-2" /> +91 9503714292
+                        </a>
+                        <a href="mailto:fortuneadmin@gmail.com" className="flex items-center text-sm hover:text-fortune-pink">
+                          <Mail size={16} className="mr-2" /> fortuneadmin@gmail.com
+                        </a>
+                      </div>
+                    </div>
+                    
+                    <div className="flex flex-col md:flex-row md:items-center gap-4 pb-4 border-b">
+                      <div className="font-medium text-gray-800 flex-grow">
+                        <p className="font-bold">Ishwari Mahadik</p>
+                        <p className="text-sm text-fortune-green">English Language Trainer</p>
+                      </div>
+                      <div className="flex flex-col text-gray-600">
+                        <a href="tel:+917276488228" className="flex items-center hover:text-fortune-pink">
+                          <Phone size={16} className="mr-2" /> +91 7276488228
+                        </a>
+                        <a href="mailto:fortunetrainer@gmail.com" className="flex items-center text-sm hover:text-fortune-pink">
+                          <Mail size={16} className="mr-2" /> fortunetrainer@gmail.com
+                        </a>
+                      </div>
+                    </div>
+                    
+                    <div className="flex flex-col md:flex-row md:items-center gap-4">
+                      <div className="font-medium text-gray-800 flex-grow">
+                        <p className="font-bold">Neharika Nale</p>
+                        <p className="text-sm text-fortune-orange">Career Counselor</p>
+                      </div>
+                      <div className="flex flex-col text-gray-600">
+                        <a href="tel:+919665835959" className="flex items-center hover:text-fortune-pink">
+                          <Phone size={16} className="mr-2" /> +91 9665835959
+                        </a>
+                        <a href="mailto:fortuneadmin@gmail.com" className="flex items-center text-sm hover:text-fortune-pink">
+                          <Mail size={16} className="mr-2" /> fortuneadmin@gmail.com
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -250,7 +322,7 @@ const Contact = () => {
           <h2 className="section-title text-center mb-8">Visit Our Institute 🏢</h2>
           <div className="bg-white rounded-lg shadow-md overflow-hidden">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11823.229427791266!2d74.22664425541988!3d16.694393099999992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc101c089c67793%3A0x19e4d135ed483514!2sFortune%20Technology!5e1!3m2!1sen!2sin!4v1746213392297!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.961343819975!2d74.21535107590565!3d16.690792124094243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc115ef0b33c3dd%3A0xf57eb997e8bc6316!2sFortune%20Technology%20Language%20Institute%20%26%20Job%20Consultant!5e0!3m2!1sen!2sin!4v1714380146059!5m2!1sen!2sin"
               width="100%"
               height="450"
               style={{ border: 0 }}
@@ -273,7 +345,7 @@ const Contact = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
-              href="https://wa.me/917057617979" 
+              href="https://wa.me/919503714292" 
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary bg-white text-fortune-blue flex items-center justify-center"

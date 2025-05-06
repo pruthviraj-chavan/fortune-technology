@@ -18,8 +18,8 @@ interface Batch {
 const batches: Batch[] = [
   {
     id: 1,
-    course: "IELTS Preparation",
-    date: "15 April 2025",
+    course: "Spoken English",
+    date: "12 May 2025",
     time: "10:00 AM - 12:00 PM",
     mode: "Offline + Online",
     location: "Pune Center",
@@ -28,8 +28,8 @@ const batches: Batch[] = [
   },
   {
     id: 2,
-    course: "German A1-A2",
-    date: "18 April 2025",
+    course: "German A1",
+    date: "12 May 2025",
     time: "2:00 PM - 4:00 PM",
     mode: "Offline",
     location: "Pune Center",
@@ -38,23 +38,53 @@ const batches: Batch[] = [
   },
   {
     id: 3,
-    course: "French Beginner",
-    date: "20 April 2025",
+    course: "German B1",
+    date: "10 May 2025",
     time: "6:00 PM - 8:00 PM",
     mode: "Online",
     location: "Zoom Classes",
-    icon: "🇫🇷",
+    icon: "🇩🇪",
     color: "from-fortune-green to-fortune-blue"
   },
   {
     id: 4,
-    course: "Spanish Intensive",
-    date: "22 April 2025",
+    course: "German A2",
+    date: "20 May 2025",
     time: "11:00 AM - 1:00 PM",
     mode: "Offline + Online",
     location: "Pune Center",
-    icon: "🇪🇸",
+    icon: "🇩🇪",
     color: "from-fortune-blue to-fortune-indigo"
+  },
+  {
+    id: 5,
+    course: "French A1",
+    date: "20 May 2025",
+    time: "3:00 PM - 5:00 PM",
+    mode: "Online",
+    location: "Zoom Classes",
+    icon: "🇫🇷",
+    color: "from-fortune-indigo to-fortune-purple"
+  },
+  {
+    id: 6,
+    course: "Korean",
+    date: "12 May 2025",
+    time: "5:00 PM - 7:00 PM",
+    mode: "Offline",
+    location: "Pune Center",
+    icon: "🇰🇷",
+    color: "from-fortune-purple to-fortune-pink"
+  },
+  {
+    id: 7,
+    course: "Spanish A1",
+    date: "12 May 2025",
+    time: "9:00 AM - 11:00 AM",
+    mode: "Online + Offline",
+    location: "Pune Center",
+    icon: "🇪🇸",
+    color: "from-fortune-red to-fortune-orange"
   }
 ];
 
@@ -100,7 +130,7 @@ const UpcomingBatchesSection = () => {
                 </div>
                 <Button 
                   className="w-full mt-5 bg-fortune-green hover:bg-fortune-green/90"
-                  onClick={() => window.open("https://wa.me/917057617979", "_blank")}
+                  onClick={() => window.open("https://wa.me/919503714292", "_blank")}
                 >
                   Enroll Now
                 </Button>
