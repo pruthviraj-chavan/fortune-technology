@@ -12,27 +12,13 @@ const partners = [
   },
   { 
     id: 2, 
-    name: "Stanford University", 
-    logo: "/lovable-uploads/aa716603-6d06-4b82-a1cc-21266226a93a.png",
-    website: "stanford.edu",
-    location: "USA"
-  },
-  { 
-    id: 3, 
-    name: "University of Europe", 
-    logo: "/lovable-uploads/98108df9-dec1-4c13-936b-e7dacdf64493.png",
-    website: "ue-germany.com",
-    location: "Europe"
-  },
-  { 
-    id: 4, 
     name: "University of Oslo", 
     logo: "/lovable-uploads/4cf02bd2-ece2-4779-be4b-da506cc8c599.png",
     website: "uio.no",
     location: "Norway"
   },
   { 
-    id: 5, 
+    id: 3, 
     name: "University of Bristol", 
     logo: "/lovable-uploads/0fad941f-d3da-4300-8cf1-3234548b3275.png",
     website: "bristol.ac.uk",
