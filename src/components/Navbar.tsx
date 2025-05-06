@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, ChevronUp } from 'lucide-react';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -11,13 +11,29 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/hooks/use-mobile";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
   const location = useLocation();
+  const isMobile = useIsMobile();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    // Reset submenu state when closing menu
+    if (isMenuOpen) {
+      setOpenSubmenu(null);
+    }
+  };
+
+  const toggleSubmenu = (name: string) => {
+    setOpenSubmenu(openSubmenu === name ? null : name);
   };
 
   const navLinks = [
@@ -45,7 +61,10 @@ const Navbar = () => {
     { name: 'Contact Us', path: '/contact' },
   ];
 
-  const closeMenu = () => setIsMenuOpen(false);
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+    setOpenSubmenu(null);
+  };
   
   // Check if current path is a job country page
   const isJobCountryPage = (path) => {
@@ -87,7 +106,7 @@ const Navbar = () => {
                           {link.name}
                         </NavigationMenuTrigger>
                         <NavigationMenuContent>
-                          <ul className="grid grid-cols-1 gap-2 p-4 w-[220px]">
+                          <ul className="grid grid-cols-1 gap-2 p-4 w-[220px] bg-white">
                             {link.submenu.map((subItem) => (
                               <li key={subItem.path}>
                                 <Link
@@ -139,31 +158,55 @@ const Navbar = () => {
           <nav className="md:hidden py-4 flex flex-col space-y-2 border-t mt-4">
             {navLinks.map((link) => {
               if (link.submenu) {
+                const isOpen = openSubmenu === link.name;
                 return (
                   <div key={link.name} className="space-y-1">
-                    <div className={`font-medium flex items-center justify-between ${
-                      isInSection(link.path) || isJobCountryPage(location.pathname)
-                        ? 'text-fortune-pink'
-                        : 'text-gray-600'
-                    }`}>
-                      <Link to={link.path} onClick={closeMenu}>{link.name}</Link>
+                    <div 
+                      className={`font-medium flex items-center justify-between py-2 ${
+                        isInSection(link.path) || isJobCountryPage(location.pathname)
+                          ? 'text-fortune-pink'
+                          : 'text-gray-600'
+                      }`}
+                      onClick={() => toggleSubmenu(link.name)}
+                    >
+                      <Link 
+                        to={link.path}
+                        onClick={(e) => {
+                          // Prevent navigation when clicking the parent item
+                          if (!isOpen) {
+                            e.preventDefault();
+                          } else {
+                            closeMenu();
+                          }
+                        }}
+                      >
+                        {link.name}
+                      </Link>
+                      {isOpen ? (
+                        <ChevronUp size={18} className="ml-2" />
+                      ) : (
+                        <ChevronDown size={18} className="ml-2" />
+                      )}
                     </div>
-                    <div className="pl-4 border-l-2 border-gray-200 ml-2 space-y-1">
-                      {link.submenu.map((subItem) => (
-                        <Link
-                          key={subItem.path}
-                          to={subItem.path}
-                          className={`block py-1 text-sm ${
-                            location.pathname === subItem.path
-                              ? 'text-fortune-pink'
-                              : 'text-gray-500 hover:text-fortune-pink'
-                          }`}
-                          onClick={closeMenu}
-                        >
-                          {subItem.name}
-                        </Link>
-                      ))}
-                    </div>
+                    
+                    {isOpen && (
+                      <div className="pl-4 border-l-2 border-gray-200 ml-2 space-y-1">
+                        {link.submenu.map((subItem) => (
+                          <Link
+                            key={subItem.path}
+                            to={subItem.path}
+                            className={`block py-1.5 text-sm ${
+                              location.pathname === subItem.path
+                                ? 'text-fortune-pink'
+                                : 'text-gray-500 hover:text-fortune-pink'
+                            }`}
+                            onClick={closeMenu}
+                          >
+                            {subItem.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 );
               }
@@ -172,7 +215,7 @@ const Navbar = () => {
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`font-medium transition-colors ${
+                  className={`font-medium transition-colors py-2 block ${
                     location.pathname === link.path
                       ? 'text-fortune-pink'
                       : 'text-gray-600 hover:text-fortune-pink'
