@@ -13,8 +13,19 @@ import Jobs from "./pages/Jobs";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
-import Country from "./pages/jobs/Country";
 import BlogPost from "./pages/blog/BlogPost";
+
+// Country pages
+import Germany from "./pages/jobs/countries/Germany";
+import Norway from "./pages/jobs/countries/Norway";
+import France from "./pages/jobs/countries/France";
+import Italy from "./pages/jobs/countries/Italy";
+import Ireland from "./pages/jobs/countries/Ireland";
+import UK from "./pages/jobs/countries/UK";
+import Spain from "./pages/jobs/countries/Spain";
+import Netherlands from "./pages/jobs/countries/Netherlands";
+import Sweden from "./pages/jobs/countries/Sweden";
+import Poland from "./pages/jobs/countries/Poland";
 
 // Google Analytics
 import { useEffect } from "react";
@@ -52,7 +63,17 @@ const App = () => (
               <Route path="/about" element={<About />} />
               <Route path="/courses" element={<Courses />} />
               <Route path="/jobs" element={<Jobs />} />
-              <Route path="/jobs/:countryId" element={<Country />} />
+              {/* Country specific job pages */}
+              <Route path="/jobs/work-in-germany" element={<Germany />} />
+              <Route path="/jobs/work-in-norway" element={<Norway />} />
+              <Route path="/jobs/work-in-france" element={<France />} />
+              <Route path="/jobs/work-in-italy" element={<Italy />} />
+              <Route path="/jobs/work-in-ireland" element={<Ireland />} />
+              <Route path="/jobs/work-in-uk" element={<UK />} />
+              <Route path="/jobs/work-in-spain" element={<Spain />} />
+              <Route path="/jobs/work-in-netherlands" element={<Netherlands />} />
+              <Route path="/jobs/work-in-sweden" element={<Sweden />} />
+              <Route path="/jobs/work-in-poland" element={<Poland />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:postId" element={<BlogPost />} />
               <Route path="/contact" element={<Contact />} />

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Briefcase, Building, CheckCircle, ArrowRight, Users, Trophy, Target, MessageCircle, DollarSign, Stethoscope, Pill, Home } from 'lucide-react';
@@ -76,7 +75,7 @@ const Jobs = () => {
             {countryData.map((country) => (
               <Link 
                 key={country.id} 
-                to={`/jobs/${country.slug}`}
+                to={`/jobs/work-in-${country.slug}`}
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all group"
               >
                 <div className={`h-24 bg-gradient-to-r ${country.gradientClass} flex items-center justify-center`}>

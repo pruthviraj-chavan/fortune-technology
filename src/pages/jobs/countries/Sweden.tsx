@@ -1,19 +1,17 @@
-
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ArrowLeft, MessageCircle, Building } from 'lucide-react';
-import SEOHead from '../../components/SEOHead';
-import { countryData } from './countryData';
+import SEOHead from '../../../components/SEOHead';
+import { countryData } from '../countryData';
  
-const Country = () => {
-  const { countryId } = useParams<{ countryId: string }>();
-  const country = countryData.find(c => c.slug === countryId);
+const Sweden = () => {
+  const country = countryData.find(c => c.slug === 'sweden');
   
   if (!country) {
     return (
       <div className="container mx-auto px-4 py-16 text-center">
-        <h1 className="text-3xl font-bold mb-4">Country not found</h1>
-        <p className="mb-8">The country you're looking for doesn't exist in our database.</p>
+        <h1 className="text-3xl font-bold mb-4">Country data not found</h1>
+        <p className="mb-8">We're experiencing technical difficulties. Please try again later.</p>
         <Link to="/jobs" className="btn-primary">
           Back to Jobs
         </Link>
@@ -24,10 +22,10 @@ const Country = () => {
   return (
     <div className="min-h-screen">
       <SEOHead 
-        title={`Work in ${country.name} from Kolhapur | Fortune Technology`}
-        description={`Discover high-paying job opportunities in ${country.name} for Kolhapur residents. Fortune Technology helps with job placement, visa assistance, and language preparation.`}
-        keywords={`jobs in ${country.name}, work in ${country.name}, ${country.name} jobs for Indians, jobs abroad from Kolhapur, ${country.name} work visa, ${country.industries.join(', ')}, job opportunities in ${country.name}, Kolhapur employment agency`}
-        canonicalUrl={`/jobs/${country.slug}`}
+        title={`Work in Sweden from Kolhapur | Fortune Technology`}
+        description={`Discover high-paying job opportunities in Sweden for Kolhapur residents. Fortune Technology helps with job placement, visa assistance, and language preparation.`}
+        keywords={`jobs in Sweden, work in Sweden, Sweden jobs for Indians, jobs abroad from Kolhapur, Sweden work visa, ${country.industries.join(', ')}, job opportunities in Sweden, Kolhapur employment agency`}
+        canonicalUrl={`/jobs/work-in-sweden`}
       />
 
       {/* Hero Section */}
@@ -38,7 +36,7 @@ const Country = () => {
             <span>Back to All Countries</span>
           </Link>
 
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Work in {country.name} from Kolhapur</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Work in Sweden from Kolhapur</h1>
           
           <div className="bg-white/20 backdrop-blur-sm rounded-lg p-6 max-w-3xl">
             <p className="text-lg">
@@ -55,7 +53,7 @@ const Country = () => {
             <div className="lg:col-span-2 space-y-12">
               {/* Why Choose This Country */}
               <div>
-                <h2 className="text-3xl font-bold gradient-text mb-6">Why Choose {country.name} for Jobs?</h2>
+                <h2 className="text-3xl font-bold gradient-text mb-6">Why Choose Sweden for Jobs?</h2>
                 <div className="space-y-4">
                   {country.benefits.map((benefit, index) => (
                     <div key={index} className="bg-white p-6 rounded-lg shadow-md">
@@ -68,7 +66,7 @@ const Country = () => {
 
               {/* Popular Job Sectors */}
               <div>
-                <h2 className="text-3xl font-bold gradient-text mb-6">Popular Job Sectors in {country.name}</h2>
+                <h2 className="text-3xl font-bold gradient-text mb-6">Popular Job Sectors in Sweden</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {country.industries.map((industry, index) => (
                     <div key={index} className="flex bg-white p-5 rounded-lg shadow-md">
@@ -86,7 +84,7 @@ const Country = () => {
 
               {/* Eligibility & Requirements */}
               <div>
-                <h2 className="text-3xl font-bold gradient-text mb-6">Eligibility & Requirements to Work in {country.name}</h2>
+                <h2 className="text-3xl font-bold gradient-text mb-6">Eligibility & Requirements to Work in Sweden</h2>
                 <div className="bg-white p-6 rounded-lg shadow-md">
                   <h3 className="text-xl font-semibold text-gray-800 mb-4">Visa Requirements</h3>
                   <ul className="space-y-3">
@@ -102,7 +100,7 @@ const Country = () => {
 
               {/* Job Search Platforms */}
               <div>
-                <h2 className="text-3xl font-bold gradient-text mb-6">Job Search Platforms & Agencies in {country.name}</h2>
+                <h2 className="text-3xl font-bold gradient-text mb-6">Job Search Platforms & Agencies in Sweden</h2>
                 <div className="bg-white p-6 rounded-lg shadow-md">
                   <div className="space-y-4">
                     {country.jobPlatforms.map((platform, index) => (
@@ -120,7 +118,7 @@ const Country = () => {
 
               {/* Salary Expectations */}
               <div>
-                <h2 className="text-3xl font-bold gradient-text mb-6">Salary Expectations for Indians in {country.name}</h2>
+                <h2 className="text-3xl font-bold gradient-text mb-6">Salary Expectations for Indians in Sweden</h2>
                 <div className="bg-white p-6 rounded-lg shadow-md">
                   <div className="space-y-6">
                     <div>
@@ -141,7 +139,7 @@ const Country = () => {
 
               {/* Life as an Indian */}
               <div>
-                <h2 className="text-3xl font-bold gradient-text mb-6">Life as an Indian in {country.name}</h2>
+                <h2 className="text-3xl font-bold gradient-text mb-6">Life as an Indian in Sweden</h2>
                 <div className="bg-white p-6 rounded-lg shadow-md">
                   <div className="space-y-6">
                     {country.lifeAsIndian.map((item, index) => (
@@ -176,13 +174,13 @@ const Country = () => {
                     className="btn-primary w-full flex items-center justify-center"
                   >
                     <MessageCircle size={18} className="mr-2" />
-                    <span>Contact Us for {country.name} Jobs</span>
+                    <span>Contact Us for Sweden Jobs</span>
                   </a>
                   
                   <div className="mt-6 p-4 bg-gray-50 rounded-lg">
                     <h3 className="font-semibold text-gray-800 mb-2">Success Rate</h3>
                     <p className="text-gray-600 text-sm">
-                      Fortune Technology has successfully placed over 200 candidates from Kolhapur in {country.name} in the last 3 years.
+                      Fortune Technology has successfully placed over 200 candidates from Kolhapur in Sweden in the last 3 years.
                     </p>
                   </div>
                 </div>
@@ -195,9 +193,9 @@ const Country = () => {
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-fortune-orange to-fortune-pink text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Start Your Career in {country.name}?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Start Your Career in Sweden?</h2>
           <p className="text-lg max-w-2xl mx-auto mb-8">
-            Contact Fortune Technology today to discuss your qualifications and explore available opportunities in {country.name}.
+            Contact Fortune Technology today to discuss your qualifications and explore available opportunities in Sweden.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
@@ -218,4 +216,4 @@ const Country = () => {
   );
 };
 
-export default Country;
+export default Sweden;
