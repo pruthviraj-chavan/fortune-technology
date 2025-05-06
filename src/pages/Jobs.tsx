@@ -1,6 +1,9 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Briefcase, Building, CheckCircle, ArrowRight, Users, Trophy, Target, MessageCircle, DollarSign, Stethoscope, Pill, Home } from 'lucide-react';
+import SEOHead from '../components/SEOHead';
+import { countryData } from './jobs/countryData';
 
 const Jobs = () => {
   // Job sectors data
@@ -44,6 +47,13 @@ const Jobs = () => {
 
   return (
     <div className="min-h-screen">
+      <SEOHead 
+        title="International Job Opportunities | Fortune Technology Kolhapur"
+        description="Explore international job placement services with Fortune Technology. We help professionals from Kolhapur secure high-paying jobs abroad with complete visa and preparation support."
+        keywords="abroad jobs, international job placement, work in Europe, jobs in Germany, jobs from Kolhapur, overseas employment, Fortune Technology placement services"
+        canonicalUrl="/jobs"
+      />
+
       {/* Hero Section */}
       <section className="bg-gradient-pink text-white py-16">
         <div className="container mx-auto px-4 text-center">
@@ -51,6 +61,43 @@ const Jobs = () => {
           <p className="text-lg md:text-xl max-w-3xl mx-auto">
             Your gateway to career prospects across the globe
           </p>
+        </div>
+      </section>
+
+      {/* Countries Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="section-title text-center mb-4">Top Destinations for Jobs Abroad</h2>
+          <p className="text-gray-600 text-center max-w-3xl mx-auto mb-12">
+            Explore job opportunities in these popular European countries
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+            {countryData.map((country) => (
+              <Link 
+                key={country.id} 
+                to={`/jobs/${country.slug}`}
+                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all group"
+              >
+                <div className={`h-24 bg-gradient-to-r ${country.gradientClass} flex items-center justify-center`}>
+                  <h3 className="text-xl font-bold text-white">{country.name}</h3>
+                </div>
+                <div className="p-4">
+                  <p className="text-sm text-gray-600 mb-3">{country.industries[0]}, {country.industries[1]}</p>
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs text-gray-500">{country.benefits[0].title}</span>
+                    <ArrowRight size={16} className="text-fortune-pink transform group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+          
+          <div className="text-center mt-8">
+            <p className="text-gray-600 mb-4">
+              Click on any country to explore detailed job opportunities and requirements
+            </p>
+          </div>
         </div>
       </section>
 
@@ -155,7 +202,7 @@ const Jobs = () => {
                 </div>
               </div>
               <a 
-                href="https://wa.me/917057617979" 
+                href="https://wa.me/919503714292" 
                 target="_blank"
                 className="btn-primary inline-flex items-center"
               >
@@ -219,7 +266,7 @@ const Jobs = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
-              href="https://wa.me/917057617979" 
+              href="https://wa.me/919503714292" 
               target="_blank"
               className="btn-secondary bg-white text-fortune-pink flex items-center justify-center"
             >
@@ -270,7 +317,7 @@ const JobSectorCard = ({
           </ul>
         </div>
         <a 
-          href="https://wa.me/917057617979" 
+          href="https://wa.me/919503714292" 
           target="_blank" 
           className="btn-primary w-full flex items-center justify-center"
         >
