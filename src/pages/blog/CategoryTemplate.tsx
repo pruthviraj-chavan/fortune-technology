@@ -34,7 +34,7 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({
       {/* Hero Section */}
       <section className="relative bg-fortune-blue text-white py-16">
         <div className="absolute inset-0 opacity-20" style={{
-          backgroundImage: `url(${headerImage})`,
+          backgroundImage: `url("${headerImage}")`,
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}></div>

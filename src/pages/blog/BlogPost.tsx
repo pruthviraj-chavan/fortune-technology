@@ -40,7 +40,7 @@ const BlogPost = () => {
           {/* Featured Image */}
           <div className="w-full h-[400px] overflow-hidden rounded-xl mb-8">
             <img 
-              src="/public/lovable-uploads/dfac3cd3-5b28-4f41-84b7-ad8693ed43fa.png"
+              src={post.featuredImage || "/public/lovable-uploads/dfac3cd3-5b28-4f41-84b7-ad8693ed43fa.png"}
               alt={post.title}
               className="w-full h-full object-cover" 
             />
@@ -76,45 +76,63 @@ const BlogPost = () => {
                 {post.sections.map((section, index) => (
                   <div key={index} className="mb-8">
                     <h2 className="text-2xl font-bold mb-4 text-gray-800">{section.heading}</h2>
-                    {/* Add an image after the first paragraph in the first section */}
-                    {index === 0 && section.paragraphs.length > 1 && (
+                    
+                    {/* First paragraph */}
+                    {section.paragraphs.length > 0 && (
+                      <p className="text-gray-600 mb-4">{section.paragraphs[0]}</p>
+                    )}
+                    
+                    {/* First section image */}
+                    {index === 0 && post.images?.section1 && (
+                      <div className="my-6 rounded-lg overflow-hidden">
+                        <img 
+                          src={post.images.section1} 
+                          alt={`${section.heading} - Fortune Technology Kolhapur`} 
+                          className="w-full h-auto object-cover rounded-lg shadow-md"
+                        />
+                        <p className="text-sm text-gray-500 mt-2 italic">
+                          Fortune Technology students during an international language training session in Kolhapur
+                        </p>
+                      </div>
+                    )}
+                    
+                    {/* Remaining paragraphs for first section */}
+                    {index === 0 && section.paragraphs.slice(1).map((paragraph, pIndex) => (
+                      <p key={`p-${index}-${pIndex + 1}`} className="text-gray-600 mb-4">
+                        {paragraph}
+                      </p>
+                    ))}
+                    
+                    {/* For sections other than first */}
+                    {index !== 0 && (
                       <>
-                        <p className="text-gray-600 mb-4">{section.paragraphs[0]}</p>
-                        <div className="my-6 rounded-lg overflow-hidden">
-                          <img 
-                            src="/public/lovable-uploads/dfac3cd3-5b28-4f41-84b7-ad8693ed43fa.png" 
-                            alt={`Image for ${section.heading}`} 
-                            className="w-full h-auto"
-                          />
-                          <p className="text-sm text-gray-500 mt-2 italic">
-                            Fortune Technology students during a language training session in Kolhapur
-                          </p>
-                        </div>
                         {section.paragraphs.slice(1).map((paragraph, pIndex) => (
                           <p key={`p-${index}-${pIndex + 1}`} className="text-gray-600 mb-4">
                             {paragraph}
                           </p>
                         ))}
+                        
+                        {/* Middle section image */}
+                        {index === 2 && post.images?.section2 && (
+                          <div className="my-6 rounded-lg overflow-hidden">
+                            <img 
+                              src={post.images.section2} 
+                              alt={`${section.heading} - Fortune Technology Kolhapur`} 
+                              className="w-full h-auto object-cover rounded-lg shadow-md"
+                            />
+                            <p className="text-sm text-gray-500 mt-2 italic">
+                              Fortune Technology's language laboratory facilities in Rajarampuri, Kolhapur
+                            </p>
+                          </div>
+                        )}
+                        
+                        {/* Last paragraphs */}
+                        {section.paragraphs.slice(Math.max(1, section.paragraphs.length - 1)).map((paragraph, pIndex) => (
+                          <p key={`p-${index}-${pIndex + section.paragraphs.length - 1}`} className="text-gray-600 mb-4">
+                            {paragraph}
+                          </p>
+                        ))}
                       </>
-                    )}
-                    {index !== 0 && section.paragraphs.map((paragraph, pIndex) => (
-                      <p key={`p-${index}-${pIndex}`} className="text-gray-600 mb-4">
-                        {paragraph}
-                      </p>
-                    ))}
-                    
-                    {/* Add image to some sections for visual interest */}
-                    {index === 2 && (
-                      <div className="my-6 rounded-lg overflow-hidden">
-                        <img 
-                          src="/public/lovable-uploads/dfac3cd3-5b28-4f41-84b7-ad8693ed43fa.png" 
-                          alt={`Image for ${section.heading}`} 
-                          className="w-full h-auto"
-                        />
-                        <p className="text-sm text-gray-500 mt-2 italic">
-                          Fortune Technology's language laboratory facilities in Rajarampuri, Kolhapur
-                        </p>
-                      </div>
                     )}
                   </div>
                 ))}
@@ -141,7 +159,7 @@ const BlogPost = () => {
                 )}
               </div>
 
-              {/* Author bio */}
+              {/* Author bio with image */}
               <div className="mt-12 pt-6 border-t border-gray-100 flex items-center">
                 <div className="w-14 h-14 bg-fortune-pink/20 text-fortune-pink rounded-full flex items-center justify-center text-xl font-bold">
                   {post.author?.charAt(0) || 'F'}

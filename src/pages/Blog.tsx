@@ -26,7 +26,7 @@ const Blog = () => {
       {/* Hero Section */}
       <section className="relative h-[60vh] max-h-[500px] min-h-[400px] bg-fortune-blue flex items-center">
         <div className="absolute inset-0 opacity-20" style={{
-          backgroundImage: `url('/public/lovable-uploads/dfac3cd3-5b28-4f41-84b7-ad8693ed43fa.png')`,
+          backgroundImage: `url('/public/lovable-uploads/7513cacc-9dd5-4cd7-9790-5785b5840a87.png')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}></div>
@@ -72,7 +72,7 @@ const Blog = () => {
                 </div>
                 <div className="h-64 md:h-auto bg-gray-200">
                   <img 
-                    src="/public/lovable-uploads/dfac3cd3-5b28-4f41-84b7-ad8693ed43fa.png" 
+                    src={blogData[0].featuredImage || "/public/lovable-uploads/dfac3cd3-5b28-4f41-84b7-ad8693ed43fa.png"}
                     alt={blogData[0].title} 
                     className="w-full h-full object-cover"
                   />
@@ -93,7 +93,7 @@ const Blog = () => {
                 <div className="bg-white rounded-lg shadow-md overflow-hidden h-full transition-transform duration-300 group-hover:-translate-y-2">
                   <div className="h-48 bg-gray-200 overflow-hidden">
                     <img 
-                      src="/public/lovable-uploads/dfac3cd3-5b28-4f41-84b7-ad8693ed43fa.png" 
+                      src={post.featuredImage || "/public/lovable-uploads/dfac3cd3-5b28-4f41-84b7-ad8693ed43fa.png"}
                       alt={post.title} 
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
