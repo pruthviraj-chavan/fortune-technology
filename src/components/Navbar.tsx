@@ -40,7 +40,18 @@ const Navbar = () => {
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
     { name: 'Courses', path: '/courses' },
-    { name: 'Blog', path: '/blog' },
+    { 
+      name: 'Blog', 
+      path: '/blog',
+      submenu: [
+        { name: 'All Articles', path: '/blog' },
+        { name: 'IELTS Preparation', path: '/blog/ielts-preparation' },
+        { name: 'Study Abroad', path: '/blog/study-abroad' },
+        { name: 'Language Learning', path: '/blog/language-learning' },
+        { name: 'Job Opportunities', path: '/blog/job-opportunities' },
+        { name: 'Kolhapur Updates', path: '/blog/kolhapur-updates' },
+      ]
+    },
     { 
       name: 'Jobs', 
       path: '/jobs',
@@ -71,6 +82,11 @@ const Navbar = () => {
     return path.startsWith('/jobs/work-in-');
   };
 
+  // Check if current path is a blog category page
+  const isBlogCategoryPage = (path) => {
+    return path.startsWith('/blog/') && path !== '/blog';
+  };
+
   // Check if current path is within a section
   const isInSection = (path) => {
     const currentPath = location.pathname;
@@ -97,8 +113,10 @@ const Navbar = () => {
                     <NavigationMenuList>
                       <NavigationMenuItem>
                         <NavigationMenuTrigger 
-                          className={`font-medium ${
-                            isInSection(link.path) || isJobCountryPage(location.pathname)
+                          className={`font-medium min-w-[80px] ${
+                            isInSection(link.path) || 
+                            (link.name === 'Jobs' && isJobCountryPage(location.pathname)) ||
+                            (link.name === 'Blog' && isBlogCategoryPage(location.pathname))
                               ? 'text-fortune-pink'
                               : 'text-gray-600 hover:text-fortune-pink'
                           }`}
@@ -163,25 +181,15 @@ const Navbar = () => {
                   <div key={link.name} className="space-y-1">
                     <div 
                       className={`font-medium flex items-center justify-between py-2 ${
-                        isInSection(link.path) || isJobCountryPage(location.pathname)
+                        isInSection(link.path) || 
+                        (link.name === 'Jobs' && isJobCountryPage(location.pathname)) ||
+                        (link.name === 'Blog' && isBlogCategoryPage(location.pathname))
                           ? 'text-fortune-pink'
                           : 'text-gray-600'
                       }`}
                       onClick={() => toggleSubmenu(link.name)}
                     >
-                      <Link 
-                        to={link.path}
-                        onClick={(e) => {
-                          // Prevent navigation when clicking the parent item
-                          if (!isOpen) {
-                            e.preventDefault();
-                          } else {
-                            closeMenu();
-                          }
-                        }}
-                      >
-                        {link.name}
-                      </Link>
+                      <span>{link.name}</span>
                       {isOpen ? (
                         <ChevronUp size={18} className="ml-2" />
                       ) : (

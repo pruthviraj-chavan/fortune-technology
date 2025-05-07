@@ -15,6 +15,13 @@ import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
 import BlogPost from "./pages/blog/BlogPost";
 
+// Blog category pages
+import IELTSPreparation from "./pages/blog/categories/IELTSPreparation";
+import StudyAbroad from "./pages/blog/categories/StudyAbroad";
+import LanguageLearning from "./pages/blog/categories/LanguageLearning";
+import JobOpportunities from "./pages/blog/categories/JobOpportunities";
+import KolhapurUpdates from "./pages/blog/categories/KolhapurUpdates";
+
 // Country pages
 import Germany from "./pages/jobs/countries/Germany";
 import Norway from "./pages/jobs/countries/Norway";
@@ -74,8 +81,18 @@ const App = () => (
               <Route path="/jobs/work-in-netherlands" element={<Netherlands />} />
               <Route path="/jobs/work-in-sweden" element={<Sweden />} />
               <Route path="/jobs/work-in-poland" element={<Poland />} />
+              
+              {/* Blog routes */}
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:postId" element={<BlogPost />} />
+              
+              {/* Blog category routes */}
+              <Route path="/blog/ielts-preparation" element={<IELTSPreparation />} />
+              <Route path="/blog/study-abroad" element={<StudyAbroad />} />
+              <Route path="/blog/language-learning" element={<LanguageLearning />} />
+              <Route path="/blog/job-opportunities" element={<JobOpportunities />} />
+              <Route path="/blog/kolhapur-updates" element={<KolhapurUpdates />} />
+              
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
             </Route>

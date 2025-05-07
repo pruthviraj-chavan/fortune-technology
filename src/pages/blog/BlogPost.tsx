@@ -36,54 +36,138 @@ const BlogPost = () => {
           <span>Back to All Posts</span>
         </Link>
 
-        <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
-          <div className="h-64 bg-gradient-to-r from-fortune-pink to-fortune-blue flex items-end p-8">
-            <h1 className="text-3xl md:text-4xl font-bold text-white">{post.title}</h1>
+        <div className="max-w-4xl mx-auto">
+          {/* Featured Image */}
+          <div className="w-full h-[400px] overflow-hidden rounded-xl mb-8">
+            <img 
+              src="/public/lovable-uploads/dfac3cd3-5b28-4f41-84b7-ad8693ed43fa.png"
+              alt={post.title}
+              className="w-full h-full object-cover" 
+            />
           </div>
           
-          <div className="p-8">
-            <div className="flex items-center text-sm text-gray-500 mb-8">
-              <span>{post.date}</span>
-              <span className="mx-2">•</span>
-              <span>{post.readTime} min read</span>
-              <span className="mx-2">•</span>
-              <span>{post.author}</span>
-            </div>
-
-            <div className="prose prose-blue max-w-none">
-              {post.sections.map((section, index) => (
-                <div key={index} className="mb-8">
-                  <h2 className="text-2xl font-bold mb-4 text-gray-800">{section.heading}</h2>
-                  {section.paragraphs.map((paragraph, pIndex) => (
-                    <p key={pIndex} className="text-gray-600 mb-4">
-                      {paragraph}
-                    </p>
+          <div className="bg-white rounded-lg shadow-md overflow-hidden">
+            <div className="p-8">
+              {/* Post Header */}
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">{post.title}</h1>
+              
+              <div className="flex flex-wrap items-center text-sm text-gray-500 mb-8 gap-2">
+                <span>{post.date}</span>
+                <span className="w-1 h-1 bg-gray-400 rounded-full mx-2"></span>
+                <span>{post.readTime} min read</span>
+                <span className="w-1 h-1 bg-gray-400 rounded-full mx-2"></span>
+                <span>{post.author}</span>
+                <span className="w-1 h-1 bg-gray-400 rounded-full mx-2"></span>
+                <div className="flex flex-wrap gap-2 mt-1 sm:mt-0">
+                  {post.categories && post.categories.map(category => (
+                    <Link 
+                      key={category}
+                      to={`/blog/${category}`}
+                      className="bg-gray-100 hover:bg-gray-200 text-xs rounded-full px-3 py-1 transition-colors duration-300"
+                    >
+                      {category.replace(/-/g, ' ')}
+                    </Link>
                   ))}
                 </div>
-              ))}
+              </div>
 
-              {post.conclusion && (
-                <div className="mt-8 p-6 bg-gray-50 rounded-lg border-l-4 border-fortune-pink">
-                  <h3 className="text-xl font-bold mb-3 text-gray-800">Conclusion</h3>
+              {/* Post Content */}
+              <div className="prose prose-blue max-w-none">
+                {post.sections.map((section, index) => (
+                  <div key={index} className="mb-8">
+                    <h2 className="text-2xl font-bold mb-4 text-gray-800">{section.heading}</h2>
+                    {/* Add an image after the first paragraph in the first section */}
+                    {index === 0 && section.paragraphs.length > 1 && (
+                      <>
+                        <p className="text-gray-600 mb-4">{section.paragraphs[0]}</p>
+                        <div className="my-6 rounded-lg overflow-hidden">
+                          <img 
+                            src="/public/lovable-uploads/dfac3cd3-5b28-4f41-84b7-ad8693ed43fa.png" 
+                            alt={`Image for ${section.heading}`} 
+                            className="w-full h-auto"
+                          />
+                          <p className="text-sm text-gray-500 mt-2 italic">
+                            Fortune Technology students during a language training session in Kolhapur
+                          </p>
+                        </div>
+                        {section.paragraphs.slice(1).map((paragraph, pIndex) => (
+                          <p key={`p-${index}-${pIndex + 1}`} className="text-gray-600 mb-4">
+                            {paragraph}
+                          </p>
+                        ))}
+                      </>
+                    )}
+                    {index !== 0 && section.paragraphs.map((paragraph, pIndex) => (
+                      <p key={`p-${index}-${pIndex}`} className="text-gray-600 mb-4">
+                        {paragraph}
+                      </p>
+                    ))}
+                    
+                    {/* Add image to some sections for visual interest */}
+                    {index === 2 && (
+                      <div className="my-6 rounded-lg overflow-hidden">
+                        <img 
+                          src="/public/lovable-uploads/dfac3cd3-5b28-4f41-84b7-ad8693ed43fa.png" 
+                          alt={`Image for ${section.heading}`} 
+                          className="w-full h-auto"
+                        />
+                        <p className="text-sm text-gray-500 mt-2 italic">
+                          Fortune Technology's language laboratory facilities in Rajarampuri, Kolhapur
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                ))}
+
+                {/* Kolhapur-specific content for SEO */}
+                <div className="mb-8 p-6 bg-gray-50 rounded-lg border-l-4 border-fortune-pink">
+                  <h3 className="text-xl font-bold mb-3 text-gray-800">Why Choose Fortune Technology in Kolhapur?</h3>
+                  <p className="text-gray-600 mb-3">
+                    Based in Rajarampuri 8th Lane, Kolhapur, Fortune Technology has established itself as the leading language training institute in the region. 
+                    Our expert instructors, modern teaching methods, and proven track record make us the preferred choice for students and professionals in Maharashtra.
+                  </p>
                   <p className="text-gray-600">
-                    {post.conclusion}
+                    With a focus on practical skills and real-world application, our courses prepare you for international opportunities while providing personalized guidance tailored to the unique needs of Kolhapur students.
                   </p>
                 </div>
-              )}
-            </div>
 
-            <div className="mt-12 pt-8 border-t border-gray-100">
-              <h3 className="text-xl font-bold mb-4">Ready to start your language journey?</h3>
-              <p className="mb-6 text-gray-600">
-                Contact Fortune Technology in Kolhapur for personalized language training and career guidance.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Link to="/courses" className="btn-primary">
-                  View Our Courses
-                </Link>
-                <Link to="/contact" className="btn-secondary">
-                  Contact Us
-                </Link>
+                {post.conclusion && (
+                  <div className="mt-8 p-6 bg-fortune-blue/5 rounded-lg border-l-4 border-fortune-blue">
+                    <h3 className="text-xl font-bold mb-3 text-gray-800">Conclusion</h3>
+                    <p className="text-gray-600">
+                      {post.conclusion}
+                    </p>
+                  </div>
+                )}
+              </div>
+
+              {/* Author bio */}
+              <div className="mt-12 pt-6 border-t border-gray-100 flex items-center">
+                <div className="w-14 h-14 bg-fortune-pink/20 text-fortune-pink rounded-full flex items-center justify-center text-xl font-bold">
+                  {post.author?.charAt(0) || 'F'}
+                </div>
+                <div className="ml-4">
+                  <h4 className="font-bold">{post.author}</h4>
+                  <p className="text-sm text-gray-600">
+                    Language Expert at Fortune Technology, Kolhapur
+                  </p>
+                </div>
+              </div>
+
+              {/* CTA Section */}
+              <div className="mt-12 pt-8 border-t border-gray-100">
+                <h3 className="text-xl font-bold mb-4">Ready to start your language journey in Kolhapur?</h3>
+                <p className="mb-6 text-gray-600">
+                  Contact Fortune Technology for personalized language training and career guidance that opens doors to international opportunities.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <Link to="/courses" className="btn-primary">
+                    View Our Courses
+                  </Link>
+                  <Link to="/contact" className="btn-secondary">
+                    Contact Us
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
