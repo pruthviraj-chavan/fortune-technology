@@ -33,11 +33,9 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({
 
       {/* Hero Section */}
       <section className="relative bg-fortune-blue text-white py-16">
-        <div className="absolute inset-0 opacity-20" style={{
-          backgroundImage: `url("${headerImage}")`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}></div>
+        <div className="absolute inset-0 opacity-20 bg-cover bg-center" 
+          style={{backgroundImage: `url("${headerImage}")`}}>
+        </div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
           <p className="text-lg md:text-xl max-w-3xl mx-auto">
@@ -54,20 +52,23 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({
               {filteredPosts.map(post => (
                 <Link to={`/blog/${post.slug}`} key={post.id} className="group">
                   <div className="bg-white rounded-lg shadow-md overflow-hidden h-full transition-transform duration-300 group-hover:-translate-y-2">
-                    {post.featuredImage && (
-                      <div className="h-48 overflow-hidden">
+                    <div className="h-48 overflow-hidden">
+                      {post.featuredImage ? (
                         <img 
                           src={post.featuredImage} 
                           alt={post.title} 
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.src = "/public/lovable-uploads/dfac3cd3-5b28-4f41-84b7-ad8693ed43fa.png";
+                          }}
                         />
-                      </div>
-                    )}
-                    {!post.featuredImage && (
-                      <div className="h-48 bg-gradient-to-r from-fortune-pink to-fortune-blue flex items-end p-6">
-                        <h2 className="text-xl font-bold text-white">{post.title}</h2>
-                      </div>
-                    )}
+                      ) : (
+                        <div className="h-48 bg-gradient-to-r from-fortune-pink to-fortune-blue flex items-end p-6">
+                          <h2 className="text-xl font-bold text-white">{post.title}</h2>
+                        </div>
+                      )}
+                    </div>
                     <div className="p-6">
                       {post.featuredImage && (
                         <h2 className="text-xl font-bold text-gray-800 mb-2">{post.title}</h2>
@@ -93,7 +94,7 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({
             <div className="text-center py-12">
               <h2 className="text-2xl font-bold text-gray-700 mb-4">No posts found in this category yet</h2>
               <p className="text-gray-600 mb-8">Check back soon for updates or explore other categories.</p>
-              <Link to="/blog" className="btn-primary">
+              <Link to="/blog" className="inline-block bg-fortune-blue hover:bg-fortune-blue/90 text-white px-6 py-3 rounded-md transition-colors">
                 Back to All Posts
               </Link>
             </div>
@@ -109,10 +110,10 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({
             Ready to experience the benefits of language learning? Contact Fortune Technology in Kolhapur for personalized language courses designed for students and professionals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/courses" className="btn-primary">
+            <Link to="/courses" className="inline-block bg-fortune-blue hover:bg-fortune-blue/90 text-white px-8 py-3 rounded-md transition-colors">
               Explore Our Courses
             </Link>
-            <Link to="/contact" className="btn-secondary">
+            <Link to="/contact" className="inline-block border border-fortune-blue text-fortune-blue hover:bg-fortune-blue/10 px-8 py-3 rounded-md transition-colors">
               Contact Us
             </Link>
           </div>

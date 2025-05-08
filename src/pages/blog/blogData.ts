@@ -1,3 +1,4 @@
+
 export const blogData = [
   {
     id: 1,
@@ -164,7 +165,7 @@ export const blogData = [
     categories: ["language-learning", "kolhapur-updates"],
     featuredImage: "/public/lovable-uploads/0f109b97-5d87-464d-9368-c95230d421cd.png",
     images: {
-      section1: "/public/lovable-uploads/b29fe251-df8d-4716-84b4-f76dc20e593a.png",
+      section1: "/public/lovable-uploads/b29fe251-df8d-4716-84b4-f76dc20e593d.png",
       section2: "/public/lovable-uploads/4cf02bd2-ece2-4779-be4b-da506cc8c599.png"
     },
     sections: [
