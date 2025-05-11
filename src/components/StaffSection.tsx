@@ -35,7 +35,7 @@ const staffMembers: StaffMember[] = [
     name: "Samruddhi Bhosale",
     position: "Co-Founder & Operation Head",
     bio: "Samruddhi brings expertise in coordinating operations and managing student interactions at Fortune Technology.",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    image: "/k2",
     contact: {
       phone: "+919503714292",
       email: "fortuneadmin@gmail.com"
@@ -46,7 +46,7 @@ const staffMembers: StaffMember[] = [
     name: "Ishwari Mahadik",
     position: "English Language Trainer",
     bio: "Specializing in English language education, Ishwari helps students develop their communication skills with tailored teaching methods.",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    image: "/k3",
     contact: {
       phone: "+917276488228",
       email: "fortunetrainer@gmail.com"
@@ -57,7 +57,7 @@ const staffMembers: StaffMember[] = [
     name: "Neharika Nale",
     position: "Career Counselor",
     bio: "Neharika provides expert guidance to students about international education and career pathways suited to their skills and ambitions.",
-    image: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    image: "/k4",
     contact: {
       phone: "+919665835959",
       email: "fortuneadmin@gmail.com"
