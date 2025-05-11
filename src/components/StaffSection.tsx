@@ -35,7 +35,7 @@ const staffMembers: StaffMember[] = [
     id: 2,
     name: "Samruddhi Bhosale",
     position: "Co-Founder & Operation Head",
-    bio: "Samruddhi brings expertise in coordinating operations and managing student interactions at Fortune Technology.",
+    bio: "Samruddhi brings expertise in coordinating operations and managing student interactions at Fortune Technology. helped hundreds of students achieve their dreams",
     image: "/k2.jpeg",
     contact: {
       phone: "+919503714292",
