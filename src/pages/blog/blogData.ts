@@ -1,9 +1,9 @@
-// Array of available images in public folder
+// Array of available images in public folder with correct paths
 const blogImages = [
-  "/public/1.png",
-  "/public/2.png",
-  "/public/3.png",
-  "/public/4.png"
+  "/1.png",
+  "/2.png",
+  "/3.png",
+  "/4.png"
 ];
 
 // Helper function to get random image
@@ -23,10 +23,10 @@ export const blogData = [
     excerpt: "A comprehensive guide for Kolhapur professionals seeking employment opportunities in European countries with step-by-step guidance on preparation, application, and visa processes.",
     keywords: "jobs in Europe, work abroad, Europe work visa, Kolhapur to Europe jobs, international career",
     categories: ["job-opportunities", "study-abroad"],
-    featuredImage: getRandomBlogImage(),
+    featuredImage: "/1.png",
     images: {
-      section1: getRandomBlogImage(),
-      section2: getRandomBlogImage()
+      section1: "/2.png",
+      section2: "/3.png"
     },
     sections: [
       {
@@ -74,10 +74,10 @@ export const blogData = [
     excerpt: "Essential information for students from Kolhapur planning to study abroad, with detailed visa application processes, documentation requirements, and tips for a successful application.",
     keywords: "study visa, international students, visa application, student visa requirements, study abroad from Kolhapur",
     categories: ["study-abroad"],
-    featuredImage: getRandomBlogImage(),
+    featuredImage: "/2.png",
     images: {
-      section1: getRandomBlogImage(),
-      section2: getRandomBlogImage()
+      section1: "/3.png",
+      section2: "/4.png"
     },
     sections: [
       {
@@ -125,10 +125,10 @@ export const blogData = [
     excerpt: "Specialized IELTS preparation strategies designed specifically for students from Kolhapur and surrounding regions, addressing common challenges and leveraging regional strengths.",
     keywords: "IELTS preparation Kolhapur, IELTS tips, IELTS coaching Maharashtra, English proficiency test, IELTS exam strategies",
     categories: ["ielts-preparation"],
-    featuredImage: getRandomBlogImage(),
+    featuredImage: "/3.png",
     images: {
-      section1: getRandomBlogImage(),
-      section2: getRandomBlogImage()
+      section1: "/4.png",
+      section2: "/1.png"
     },
     sections: [
       {
@@ -176,10 +176,10 @@ export const blogData = [
     excerpt: "An exploration of the growing language learning ecosystem in Kolhapur and how it compares to other cities in Maharashtra for students seeking quality language education.",
     keywords: "language courses Kolhapur, language learning Maharashtra, foreign language classes, German courses, French classes, language institute",
     categories: ["language-learning", "kolhapur-updates"],
-    featuredImage: getRandomBlogImage(),
+    featuredImage: "/4.png",
     images: {
-      section1: getRandomBlogImage(),
-      section2: getRandomBlogImage()
+      section1: "/1.png",
+      section2: "/2.png"
     },
     sections: [
       {
@@ -227,10 +227,10 @@ export const blogData = [
     excerpt: "An analysis of how foreign language skills are transforming career opportunities for Kolhapur professionals both locally and internationally, with insights into emerging trends and opportunities.",
     keywords: "Kolhapur job market, language skills careers, Kolhapur employment, multilingual jobs, Kolhapur career trends",
     categories: ["job-opportunities", "kolhapur-updates"],
-    featuredImage: getRandomBlogImage(),
+    featuredImage: "/1.png",
     images: {
-      section1: getRandomBlogImage(),
-      section2: getRandomBlogImage()
+      section1: "/4.png",
+      section2: "/3.png"
     },
     sections: [
       {

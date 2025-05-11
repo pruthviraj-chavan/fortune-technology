@@ -39,7 +39,7 @@ const BlogPost = () => {
 
         <div className="max-w-4xl mx-auto">
           {/* Featured Image */}
-          <div className="w-full h-[400px] overflow-hidden rounded-xl mb-8">
+          <div className="w-full h-[300px] sm:h-[400px] overflow-hidden rounded-xl mb-8">
             <SafeImage 
               src={post.featuredImage || getRandomImage()}
               alt={post.title}
@@ -48,9 +48,9 @@ const BlogPost = () => {
           </div>
           
           <div className="bg-white rounded-lg shadow-md overflow-hidden">
-            <div className="p-8">
+            <div className="p-4 sm:p-8">
               {/* Post Header */}
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">{post.title}</h1>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4">{post.title}</h1>
               
               <div className="flex flex-wrap items-center text-sm text-gray-500 mb-8 gap-2">
                 <span>{post.date}</span>
@@ -76,7 +76,7 @@ const BlogPost = () => {
               <div className="prose prose-blue max-w-none">
                 {post.sections.map((section, index) => (
                   <div key={index} className="mb-8">
-                    <h2 className="text-2xl font-bold mb-4 text-gray-800">{section.heading}</h2>
+                    <h2 className="text-xl sm:text-2xl font-bold mb-4 text-gray-800">{section.heading}</h2>
                     
                     {/* First paragraph */}
                     {section.paragraphs.length > 0 && (
@@ -139,8 +139,8 @@ const BlogPost = () => {
                 ))}
 
                 {/* Kolhapur-specific content for SEO */}
-                <div className="mb-8 p-6 bg-gray-50 rounded-lg border-l-4 border-fortune-pink">
-                  <h3 className="text-xl font-bold mb-3 text-gray-800">Why Choose Fortune Technology in Kolhapur?</h3>
+                <div className="mb-8 p-4 sm:p-6 bg-gray-50 rounded-lg border-l-4 border-fortune-pink">
+                  <h3 className="text-lg sm:text-xl font-bold mb-3 text-gray-800">Why Choose Fortune Technology in Kolhapur?</h3>
                   <p className="text-gray-600 mb-3">
                     Based in Rajarampuri 8th Lane, Kolhapur, Fortune Technology has established itself as the leading language training institute in the region. 
                     Our expert instructors, modern teaching methods, and proven track record make us the preferred choice for students and professionals in Maharashtra.
@@ -151,8 +151,8 @@ const BlogPost = () => {
                 </div>
 
                 {post.conclusion && (
-                  <div className="mt-8 p-6 bg-fortune-blue/5 rounded-lg border-l-4 border-fortune-blue">
-                    <h3 className="text-xl font-bold mb-3 text-gray-800">Conclusion</h3>
+                  <div className="mt-8 p-4 sm:p-6 bg-fortune-blue/5 rounded-lg border-l-4 border-fortune-blue">
+                    <h3 className="text-lg sm:text-xl font-bold mb-3 text-gray-800">Conclusion</h3>
                     <p className="text-gray-600">
                       {post.conclusion}
                     </p>
@@ -162,7 +162,7 @@ const BlogPost = () => {
 
               {/* Author bio with image */}
               <div className="mt-12 pt-6 border-t border-gray-100 flex items-center">
-                <div className="w-14 h-14 bg-fortune-pink/20 text-fortune-pink rounded-full flex items-center justify-center text-xl font-bold">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-fortune-pink/20 text-fortune-pink rounded-full flex items-center justify-center text-xl font-bold">
                   {post.author?.charAt(0) || 'F'}
                 </div>
                 <div className="ml-4">
@@ -175,7 +175,7 @@ const BlogPost = () => {
 
               {/* CTA Section */}
               <div className="mt-12 pt-8 border-t border-gray-100">
-                <h3 className="text-xl font-bold mb-4">Ready to start your language journey in Kolhapur?</h3>
+                <h3 className="text-lg sm:text-xl font-bold mb-4">Ready to start your language journey in Kolhapur?</h3>
                 <p className="mb-6 text-gray-600">
                   Contact Fortune Technology for personalized language training and career guidance that opens doors to international opportunities.
                 </p>

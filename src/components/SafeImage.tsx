@@ -1,12 +1,12 @@
 
 import React, { useState, useEffect } from 'react';
 
-// Array of available images in public folder
+// Array of available images in public folder with correct paths
 const availableImages = [
-  "/public/1.png",
-  "/public/2.png",
-  "/public/3.png",
-  "/public/4.png"
+  "/1.png",
+  "/2.png",
+  "/3.png",
+  "/4.png"
 ];
 
 // Get a random image from the available images
@@ -28,19 +28,28 @@ const SafeImage: React.FC<SafeImageProps> = ({
   className = "", 
   fallbackSrc = getRandomImage()
 }) => {
-  const [imgSrc, setImgSrc] = useState(src);
+  // Normalize src path - remove public/ prefix if present
+  const normalizedSrc = src.startsWith('/public/') ? src.substring(7) : src;
+  
+  const [imgSrc, setImgSrc] = useState(normalizedSrc);
   const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     // Reset error state when src changes
     setHasError(false);
-    setImgSrc(src);
+    // Normalize src path when it changes
+    setImgSrc(src.startsWith('/public/') ? src.substring(7) : src);
   }, [src]);
 
   const handleError = () => {
     if (!hasError) {
-      setImgSrc(fallbackSrc);
+      // Make sure fallback src is also normalized
+      const normalizedFallback = fallbackSrc.startsWith('/public/') 
+        ? fallbackSrc.substring(7) 
+        : fallbackSrc;
+      setImgSrc(normalizedFallback);
       setHasError(true);
+      console.log(`Image error, using fallback: ${normalizedFallback}`);
     }
   };
 
