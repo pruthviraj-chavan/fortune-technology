@@ -40,7 +40,7 @@ const BlogPost = () => {
           {/* Featured Image */}
           <div className="w-full h-[400px] overflow-hidden rounded-xl mb-8">
             <img 
-              src={post.featuredImage || "/public/lovable-uploads/dfac3cd3-5b28-4f41-84b7-ad8693ed43fa.png"}
+              src={post.featuredImage || "/public/1.png"}
               alt={post.title}
               className="w-full h-full object-cover" 
             />
