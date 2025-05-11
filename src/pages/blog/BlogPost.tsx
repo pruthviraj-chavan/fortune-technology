@@ -4,6 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import SEOHead from '../../components/SEOHead';
 import { blogData } from './blogData';
+import SafeImage, { getRandomImage } from '../../components/SafeImage';
 
 const BlogPost = () => {
   const { postId } = useParams<{ postId: string }>();
@@ -39,8 +40,8 @@ const BlogPost = () => {
         <div className="max-w-4xl mx-auto">
           {/* Featured Image */}
           <div className="w-full h-[400px] overflow-hidden rounded-xl mb-8">
-            <img 
-              src={post.featuredImage || "/public/1.png"}
+            <SafeImage 
+              src={post.featuredImage || getRandomImage()}
               alt={post.title}
               className="w-full h-full object-cover" 
             />
@@ -83,10 +84,10 @@ const BlogPost = () => {
                     )}
                     
                     {/* First section image */}
-                    {index === 0 && post.images?.section1 && (
+                    {index === 0 && (
                       <div className="my-6 rounded-lg overflow-hidden">
-                        <img 
-                          src={post.images.section1} 
+                        <SafeImage 
+                          src={post.images?.section1 || getRandomImage()} 
                           alt={`${section.heading} - Fortune Technology Kolhapur`} 
                           className="w-full h-auto object-cover rounded-lg shadow-md"
                         />
@@ -113,10 +114,10 @@ const BlogPost = () => {
                         ))}
                         
                         {/* Middle section image */}
-                        {index === 2 && post.images?.section2 && (
+                        {index === 2 && (
                           <div className="my-6 rounded-lg overflow-hidden">
-                            <img 
-                              src={post.images.section2} 
+                            <SafeImage 
+                              src={post.images?.section2 || getRandomImage()} 
                               alt={`${section.heading} - Fortune Technology Kolhapur`} 
                               className="w-full h-auto object-cover rounded-lg shadow-md"
                             />

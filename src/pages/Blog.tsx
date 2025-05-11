@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 import { blogData } from './blog/blogData';
+import SafeImage, { getRandomImage } from '../components/SafeImage';
 
 const Blog = () => {
   // Organize posts by category for the quick links section
@@ -26,7 +27,7 @@ const Blog = () => {
       {/* Hero Section */}
       <section className="relative h-[60vh] max-h-[500px] min-h-[400px] bg-fortune-blue flex items-center">
         <div className="absolute inset-0 opacity-20 bg-cover bg-center" 
-          style={{backgroundImage: `url('/public/lovable-uploads/7513cacc-9dd5-4cd7-9790-5785b5840a87.png')`}}>
+          style={{backgroundImage: `url('${getRandomImage()}')`}}>
         </div>
         <div className="container mx-auto px-4 text-center text-white relative z-10">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Fortune Technology Blog</h1>
@@ -69,14 +70,10 @@ const Blog = () => {
                   </div>
                 </div>
                 <div className="h-64 md:h-auto">
-                  <img 
-                    src={blogData[0].featuredImage}
+                  <SafeImage 
+                    src={blogData[0].featuredImage || getRandomImage()} 
                     alt={blogData[0].title} 
                     className="w-full h-full object-cover"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.src = "/public/lovable-uploads/dfac3cd3-5b28-4f41-84b7-ad8693ed43fa.png";
-                    }}
                   />
                 </div>
               </div>
@@ -94,14 +91,10 @@ const Blog = () => {
               <Link to={`/blog/${post.slug}`} key={post.id} className="group">
                 <div className="bg-white rounded-lg shadow-md overflow-hidden h-full transition-transform duration-300 group-hover:-translate-y-2">
                   <div className="h-48 bg-gray-200 overflow-hidden">
-                    <img 
-                      src={post.featuredImage}
+                    <SafeImage 
+                      src={post.featuredImage || getRandomImage()} 
                       alt={post.title} 
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.src = "/public/lovable-uploads/dfac3cd3-5b28-4f41-84b7-ad8693ed43fa.png";
-                      }}
                     />
                   </div>
                   <div className="p-6">

@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { blogData } from './blogData';
+import SafeImage, { getRandomImage } from '../../components/SafeImage';
 
 interface CategoryTemplateProps {
   title: string;
@@ -34,7 +35,7 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({
       {/* Hero Section */}
       <section className="relative bg-fortune-blue text-white py-16">
         <div className="absolute inset-0 opacity-20 bg-cover bg-center" 
-          style={{backgroundImage: `url("${headerImage}")`}}>
+          style={{backgroundImage: `url("${headerImage || getRandomImage()}")`}}>
         </div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
@@ -53,26 +54,14 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({
                 <Link to={`/blog/${post.slug}`} key={post.id} className="group">
                   <div className="bg-white rounded-lg shadow-md overflow-hidden h-full transition-transform duration-300 group-hover:-translate-y-2">
                     <div className="h-48 overflow-hidden">
-                      {post.featuredImage ? (
-                        <img 
-                          src={post.featuredImage} 
-                          alt={post.title} 
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            target.src = "/public/2.png";
-                          }}
-                        />
-                      ) : (
-                        <div className="h-48 bg-gradient-to-r from-fortune-pink to-fortune-blue flex items-end p-6">
-                          <h2 className="text-xl font-bold text-white">{post.title}</h2>
-                        </div>
-                      )}
+                      <SafeImage 
+                        src={post.featuredImage || getRandomImage()} 
+                        alt={post.title} 
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
                     </div>
                     <div className="p-6">
-                      {post.featuredImage && (
-                        <h2 className="text-xl font-bold text-gray-800 mb-2">{post.title}</h2>
-                      )}
+                      <h2 className="text-xl font-bold text-gray-800 mb-2">{post.title}</h2>
                       <div className="flex items-center text-sm text-gray-500 mb-4">
                         <span>{post.date}</span>
                         <span className="mx-2">•</span>
