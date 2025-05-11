@@ -60,7 +60,7 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                           onError={(e) => {
                             const target = e.target as HTMLImageElement;
-                            target.src = "/public/lovable-uploads/dfac3cd3-5b28-4f41-84b7-ad8693ed43fa.png";
+                            target.src = "/public/2.png";
                           }}
                         />
                       ) : (
