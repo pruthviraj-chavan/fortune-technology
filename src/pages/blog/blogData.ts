@@ -10,10 +10,10 @@ export const blogData = [
     excerpt: "A comprehensive guide for Kolhapur professionals seeking employment opportunities in European countries with step-by-step guidance on preparation, application, and visa processes.",
     keywords: "jobs in Europe, work abroad, Europe work visa, Kolhapur to Europe jobs, international career",
     categories: ["job-opportunities", "study-abroad"],
-    featuredImage: "/public/lovable-uploads/98108df9-dec1-4c13-936b-e7dacdf64493.png",
+    featuredImage: "/public/4.png",
     images: {
-      section1: "/public/lovable-uploads/0fad941f-d3da-4300-8cf1-3234548b3275.png",
-      section2: "/public/lovable-uploads/b29fe251-df8d-4716-84b4-f76dc20e593d.png"
+      section1: "/public/1.png",
+      section2: "/public/2.png"
     },
     sections: [
       {
@@ -61,10 +61,10 @@ export const blogData = [
     excerpt: "Essential information for students from Kolhapur planning to study abroad, with detailed visa application processes, documentation requirements, and tips for a successful application.",
     keywords: "study visa, international students, visa application, student visa requirements, study abroad from Kolhapur",
     categories: ["study-abroad"],
-    featuredImage: "/public/lovable-uploads/4cf02bd2-ece2-4779-be4b-da506cc8c599.png",
+    featuredImage: "/public/4.png",
     images: {
-      section1: "/public/lovable-uploads/0f109b97-5d87-464d-9368-c95230d421cd.png",
-      section2: "/public/lovable-uploads/aa716603-6d06-4b82-a1cc-21266226a93a.png"
+      section1: "/public/1.png",
+      section2: "/public/2.png"
     },
     sections: [
       {
@@ -112,10 +112,10 @@ export const blogData = [
     excerpt: "Specialized IELTS preparation strategies designed specifically for students from Kolhapur and surrounding regions, addressing common challenges and leveraging regional strengths.",
     keywords: "IELTS preparation Kolhapur, IELTS tips, IELTS coaching Maharashtra, English proficiency test, IELTS exam strategies",
     categories: ["ielts-preparation"],
-    featuredImage: "/public/lovable-uploads/7513cacc-9dd5-4cd7-9790-5785b5840a87.png",
+    featuredImage: "/public/4.png",
     images: {
-      section1: "/public/lovable-uploads/dfac3cd3-5b28-4f41-84b7-ad8693ed43fa.png",
-      section2: "/public/lovable-uploads/98108df9-dec1-4c13-936b-e7dacdf64493.png"
+      section1: "/public/1.png",
+      section2: "/public/2.png"
     },
     sections: [
       {
@@ -163,10 +163,10 @@ export const blogData = [
     excerpt: "An exploration of the growing language learning ecosystem in Kolhapur and how it compares to other cities in Maharashtra for students seeking quality language education.",
     keywords: "language courses Kolhapur, language learning Maharashtra, foreign language classes, German courses, French classes, language institute",
     categories: ["language-learning", "kolhapur-updates"],
-    featuredImage: "/public/lovable-uploads/0f109b97-5d87-464d-9368-c95230d421cd.png",
+    featuredImage: "/public/3.png",
     images: {
-      section1: "/public/lovable-uploads/b29fe251-df8d-4716-84b4-f76dc20e593d.png",
-      section2: "/public/lovable-uploads/4cf02bd2-ece2-4779-be4b-da506cc8c599.png"
+      section1: "/public/2.png",
+      section2: "/public/1.png"
     },
     sections: [
       {
@@ -214,10 +214,10 @@ export const blogData = [
     excerpt: "An analysis of how foreign language skills are transforming career opportunities for Kolhapur professionals both locally and internationally, with insights into emerging trends and opportunities.",
     keywords: "Kolhapur job market, language skills careers, Kolhapur employment, multilingual jobs, Kolhapur career trends",
     categories: ["job-opportunities", "kolhapur-updates"],
-    featuredImage: "/public/lovable-uploads/aa716603-6d06-4b82-a1cc-21266226a93a.png",
+    featuredImage: "/public/4.png",
     images: {
-      section1: "/public/lovable-uploads/dfac3cd3-5b28-4f41-84b7-ad8693ed43fa.png",
-      section2: "/public/lovable-uploads/0fad941f-d3da-4300-8cf1-3234548b3275.png"
+      section1: "/public/2.png",
+      section2: "/public/1.png"
     },
     sections: [
       {
