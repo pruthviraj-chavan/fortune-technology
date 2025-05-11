@@ -4,6 +4,7 @@ import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Card, CardContent } from '@/components/ui/card';
 import { Star } from 'lucide-react';
 import { motion } from 'framer-motion';
+import SafeImage from './SafeImage';
 
 interface Testimonial {
   id: number;
@@ -21,7 +22,7 @@ const testimonials: Testimonial[] = [
     name: "Vanshikaraje Bhosale",
     university: "University of Sussex",
     country: "UK",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=120&q=80",
+    image: "/1.png",
     rating: 5,
     quote: "Fortune Technology helped me secure admission to my dream university in the UK. Their IELTS coaching was exceptional!"
   },
@@ -30,7 +31,7 @@ const testimonials: Testimonial[] = [
     name: "Pradyumn Naik",
     university: "De Montfort University, Leicester",
     country: "UK",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=120&q=80",
+    image: "/2.png",
     rating: 5,
     quote: "Thanks to the guidance from Fortune, I improved my IELTS score from 6.0 to 8.0 in just two months!"
   },
@@ -39,12 +40,10 @@ const testimonials: Testimonial[] = [
     name: "Nilesh Haval",
     university: "Michigan State University",
     country: "USA",
-    image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=120&q=80",
+    image: "/3.png",
     rating: 5,
     quote: "The personalized attention and study materials provided by Fortune Technology were key to my success in IELTS."
   },
-
-
 ];
 
 const TestimonialsSection = () => {
@@ -100,7 +99,9 @@ const TestimonialsSection = () => {
                       <div className="absolute inset-0 bg-gradient-to-r from-fortune-pink to-fortune-orange rounded-full blur-sm opacity-70 animate-pulse-slow"></div>
                       <div className="relative p-1 rounded-full bg-gradient-to-r from-fortune-pink to-fortune-orange">
                         <Avatar className="w-24 h-24 border-4 border-white">
-                          <AvatarImage src={testimonial.image} alt={testimonial.name} />
+                          <AvatarImage asChild>
+                            <SafeImage src={testimonial.image} alt={testimonial.name} fallbackSrc={`/${1 + (index % 4)}.png`} />
+                          </AvatarImage>
                           <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
                         </Avatar>
                       </div>

@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Mail, Phone } from 'lucide-react';
+import SafeImage from './SafeImage';
 
 interface StaffMember {
   id: number;
@@ -35,7 +36,7 @@ const staffMembers: StaffMember[] = [
     name: "Samruddhi Bhosale",
     position: "Co-Founder & Operation Head",
     bio: "Samruddhi brings expertise in coordinating operations and managing student interactions at Fortune Technology.",
-    image: "/public/k2.jpeg",
+    image: "/k2.jpeg",
     contact: {
       phone: "+919503714292",
       email: "fortuneadmin@gmail.com"
@@ -46,7 +47,7 @@ const staffMembers: StaffMember[] = [
     name: "Ishwari Mahadik",
     position: "English Language Trainer",
     bio: "Specializing in English language education, Ishwari helps students develop their communication skills with tailored teaching methods.",
-    image: "/public/k3.jpeg",
+    image: "/k3.jpeg",
     contact: {
       phone: "+917276488228",
       email: "fortunetrainer@gmail.com"
@@ -57,7 +58,7 @@ const staffMembers: StaffMember[] = [
     name: "Neharika Nale",
     position: "Career Counselor",
     bio: "Neharika provides expert guidance to students about international education and career pathways suited to their skills and ambitions.",
-    image: "/public/k4.jpeg",
+    image: "/k4.jpeg",
     contact: {
       phone: "+919665835959",
       email: "fortuneadmin@gmail.com"
@@ -105,10 +106,11 @@ const StaffSection = () => {
               <div className="flex flex-col sm:flex-row">
                 <div className="w-full sm:w-2/5 relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-b from-fortune-pink to-fortune-blue opacity-70 z-10 group-hover:opacity-60 transition-opacity duration-300"></div>
-                  <img 
+                  <SafeImage 
                     src={member.image} 
                     alt={member.name} 
                     className="w-full h-80 sm:h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                    fallbackSrc={`/${1 + (index % 4)}.png`}
                   />
                 </div>
                 <div className="w-full sm:w-3/5 p-6 md:p-8 flex flex-col">
